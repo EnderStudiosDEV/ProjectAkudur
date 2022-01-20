@@ -1,3 +1,7 @@
 name: ProjectAkudur
 main: main.Main
 version: 0.1.0.4
+
+commands:
+   redeem:
+      description: Redeem a code for a chance at rewards!
