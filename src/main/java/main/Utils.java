@@ -10,6 +10,6 @@ public class Utils {
 		Bukkit.getPluginManager().registerEvents(listener, Main.instance);
 	}
 	public void createCommand(CommandExecutor cmd) {
-		Main.instance.getCommand("kit").setExecutor(cmd);
+		Main.instance.getCommand("redeem").setExecutor(cmd);
 	}
 }
