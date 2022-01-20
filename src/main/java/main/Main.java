@@ -1,6 +1,8 @@
 package main;
 
 import org.bukkit.Bukkit;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import commands.RedeemCommand;
@@ -13,18 +15,15 @@ public class Main extends JavaPlugin {
 	// This function is called whenever the plugin is enabled
 	@Override
 	public void onEnable() {
-		// Define an instance of utils
-		Utils utils = new Utils();
-		
 		// Define an instance of main
 		instance = this;
 		// Sends some debug info to the console.
 		Bukkit.getLogger().info("Loading Project Akudur...");
 		
 		// Initialize commands and events
-		utils.createListener(new GenericEvents());
+		createListener(new GenericEvents());
 		
-		utils.createCommand(new RedeemCommand());
+		createCommand(new RedeemCommand());
 	}
 	
 	// Same as onEnable but for when it's disabled
@@ -33,4 +32,12 @@ public class Main extends JavaPlugin {
 		// Sends some debug info to the console.
 		Bukkit.getLogger().info("Unloading Project Akudur...");
 	}
+	
+	public void createListener(Listener listener) {
+		Bukkit.getPluginManager().registerEvents(listener, Main.instance);
+	}
+	public void createCommand(CommandExecutor cmd) {
+		getCommand("redeem").setExecutor(cmd);
+	}
+	
 }
