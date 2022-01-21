@@ -7,10 +7,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import commands.RedeemCommand;
 import events.GenericEvents;
+import loops.Core;
 
 public class Main extends JavaPlugin {
 
-	static Main instance;
+	public static Main instance;
 	
 	// This function is called whenever the plugin is enabled
 	@Override
@@ -24,6 +25,9 @@ public class Main extends JavaPlugin {
 		createListener(new GenericEvents());
 		
 		createCommand(new RedeemCommand());
+		
+		Core c = new Core();
+		c.callLoop();
 	}
 	
 	// Same as onEnable but for when it's disabled
