@@ -6,3 +6,5 @@ api-version: 1.18
 commands:
    redeem:
       description: Redeem a code for a chance at rewards!
+   ci:
+      description: Give any item you need!

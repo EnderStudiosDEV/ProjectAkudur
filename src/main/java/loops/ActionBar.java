@@ -17,13 +17,14 @@ public class ActionBar {
 
 	public static void call() {
 		for(Player p : Bukkit.getOnlinePlayers()) {
+			Utils utils = new Utils();
 			// Potion Effect
 			p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 1000000, -1));
 			
 			// Display on Action Bar
 			int x = (int) Math.round(p.getLocation().getX());
 			int z = (int) Math.round(p.getLocation().getZ());
-			String dir = Utils.getCardinalDirection(p);
+			String dir = utils.getCardinalDirection(p);
 			String message = "§7" + x + " §a" + dir + " §7" + z;
 	        p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(message));
 	        

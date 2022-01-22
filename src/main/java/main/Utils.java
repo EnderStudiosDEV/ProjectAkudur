@@ -1,5 +1,6 @@
 package main;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 import org.bukkit.entity.Player;
@@ -14,7 +15,7 @@ public class Utils {
 		return n;
 	}
 	
-	public static String num(int number) {
+	public String num(int number) {
 		 // Example 1 - by using NumberFormat class
         NumberFormat myFormat = NumberFormat.getInstance();
         myFormat.setGroupingUsed(true); // this will also round numbers, 3
@@ -22,7 +23,7 @@ public class Utils {
         return myFormat.format(number);
 	}
 	
-	public static String getCardinalDirection(Player player) {
+	public String getCardinalDirection(Player player) {
         double rotation = (player.getLocation().getYaw() - 180) % 360;
         if (rotation < 0) {
             rotation += 360.0;
@@ -49,5 +50,10 @@ public class Utils {
             return null;
         }
     }
+	
+	public String format(int num) {
+		DecimalFormat formatter = new DecimalFormat("#,###");
+		return formatter.format(num);
+	}
 	
 }

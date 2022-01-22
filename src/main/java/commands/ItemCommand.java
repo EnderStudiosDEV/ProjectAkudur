@@ -10,19 +10,24 @@ import org.bukkit.inventory.ItemStack;
 
 import items.ItemDatabase;
 
-public class RedeemCommand implements CommandExecutor {
+public class ItemCommand implements CommandExecutor {
 
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		if(label.equalsIgnoreCase("redeem")) {
-			sender.sendMessage("yay! you've run the command!");
+		if(label.equalsIgnoreCase("ci")) {
 			if(sender instanceof Player) {
 				Player p = (Player) sender;
+				if(!p.isOp()) return true;
 				
 				ItemDatabase dab = new ItemDatabase();
 				dab.initPickaxes();
 				HashMap<String, ItemStack> db = dab.items;
 				
-				p.getInventory().addItem(db.get("MINOR"));
+				if(args[0] != null) {
+					p.getInventory().addItem(db.get(args[0]));
+				} else {
+					p.sendMessage("Please specify an ID!");
+				}
+				
 			}
 			return true;
 		}

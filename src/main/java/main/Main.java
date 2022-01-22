@@ -5,9 +5,11 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import commands.ItemCommand;
 import commands.RedeemCommand;
 import events.GenericEvents;
 import loops.Core;
+import mining.MiningManager;
 
 public class Main extends JavaPlugin {
 
@@ -23,8 +25,10 @@ public class Main extends JavaPlugin {
 		
 		// Initialize commands and events
 		createListener(new GenericEvents());
+		createListener(new MiningManager());
 		
-		createCommand(new RedeemCommand());
+		createCommand(new RedeemCommand(), "redeem");
+		createCommand(new ItemCommand(), "ci");
 		
 		
 		Core c = new Core();
@@ -42,8 +46,8 @@ public class Main extends JavaPlugin {
 	public void createListener(Listener listener) {
 		Bukkit.getPluginManager().registerEvents(listener, Main.instance);
 	}
-	public void createCommand(CommandExecutor cmd) {
-		getCommand("redeem").setExecutor(cmd);
+	public void createCommand(CommandExecutor cmd, String t) {
+		getCommand(t).setExecutor(cmd);
 	}
 	
 }
