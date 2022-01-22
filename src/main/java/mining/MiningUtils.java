@@ -13,6 +13,9 @@ import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.BlockPosition;
 
+import items.ItemDatabase;
+import main.Utils;
+
 public class MiningUtils {
 
 	public void blockBreakEffect(final Player player, final Vector vector, final int step, final int randId) {
@@ -72,6 +75,9 @@ public class MiningUtils {
     }
     
     public Integer hardness(Material m) {
+    	if(Utils.random(1,10) == 10) {
+    		
+    	}
     	if(m.equals(Material.STONE) ||
     			m.equals(Material.ANDESITE)) {
     		return 15;
@@ -96,18 +102,36 @@ public class MiningUtils {
     }
     
     public ItemStack getDrop(Material m) {
+    	ItemDatabase dat = new ItemDatabase();
+    	dat.initTokens();
+    	dat.initDrops();
+    	
+    	if(Utils.random(1, 20) == 20) {
+    		ItemStack vo = new ItemStack(Material.STONE);
+    		vo = dat.items.get("STONE_VOUCHER");
+    		if(Utils.random(1, 3) == 3) {
+    			vo = dat.items.get("IRON_VOUCHER");
+    		}
+    		return vo;
+    	}
     	if(m.equals(Material.STONE) ||
     			m.equals(Material.ANDESITE)) {
+    		return dat.items.get("STONE");
     	}
     	if(m.equals(Material.COAL_ORE)) {
+    		return dat.items.get("COAL");
     	}
     	if(m.equals(Material.COPPER_ORE)) {
+    		return dat.items.get("COAL");
     	}
     	if(m.equals(Material.IRON_ORE)) {
+    		return dat.items.get("COAL");
     	}
     	if(m.equals(Material.DIAMOND_ORE)) {
+    		return dat.items.get("COAL");
     	}
     	if(m.equals(Material.EMERALD_ORE)) {
+    		return dat.items.get("COAL");
     	}
     	
     	

@@ -9,7 +9,7 @@ public class ItemDatabase {
 
 	public HashMap<String, ItemStack> items = new HashMap<String, ItemStack>();
 	
-	public void initPickaxes() {
+	public void initStandardPickaxes() {
 		// Setup
 		CustomItem ci = new CustomItem();
 		ci.rarity = Rarity.COMMON;
@@ -105,7 +105,55 @@ public class ItemDatabase {
 		
 		items.put("MINOR", ci.getBukkitItem());
 	}
+	public void initDrops() {
+		CustomItem ci = new CustomItem();
+		ci.rarity = Rarity.COMMON;
+		ci.mat = Material.STONE;
+		ci.name = "Stone";
+		ci.type = ItemType.DROP;
+		items.put("STONE", ci.getBukkitItem());
+	
+		ci.name = "Copper Ingot";
+		ci.mat = Material.COPPER_INGOT;
+		items.put("COPPER", ci.getBukkitItem());
+		
+		ci.name = "Coal";
+		ci.mat = Material.COAL;
+		items.put("COAL", ci.getBukkitItem());
+		
+		ci.rarity = Rarity.UNCOMMON;
+		ci.name = "Iron Ingot";
+		ci.mat = Material.IRON_INGOT;
+		items.put("IRON", ci.getBukkitItem());
+		
+		ci.name = "Diamond";
+		ci.mat = Material.DIAMOND;
+		items.put("DIAMOND", ci.getBukkitItem());
+	}
+	
 	public void initTokens() {
+		CustomItem ci = new CustomItem();
+		ci.rarity = Rarity.COMMON;
+		ci.mat = Material.STONE;
+		ci.name = "Stone Voucher";
+		ci.type = ItemType.DROP;
+		items.put("STONE_VOUCHER", ci.getBukkitItem());
+		
+		ci.rarity = Rarity.UNCOMMON;
+		ci.name = "Iron Voucher";
+		ci.mat = Material.IRON_INGOT;
+		items.put("IRON_VOUCHER", ci.getBukkitItem());
+		
+		ci.rarity = Rarity.RARE;
+		ci.name = "Gold Voucher";
+		ci.mat = Material.GOLD_INGOT;
+		items.put("GOLD_VOUCHER", ci.getBukkitItem());
+		
+		ci.rarity = Rarity.LEGENDARY;
+		ci.name = "Diamond Voucher";
+		ci.mat = Material.DIAMOND;
+		items.put("DIAMOND_VOUCHER", ci.getBukkitItem());
+		
 		
 	}
 }

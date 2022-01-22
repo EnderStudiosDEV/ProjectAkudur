@@ -19,7 +19,7 @@ public class RedeemCommand implements CommandExecutor {
 				Player p = (Player) sender;
 				
 				ItemDatabase dab = new ItemDatabase();
-				dab.initPickaxes();
+				dab.initStandardPickaxes();
 				HashMap<String, ItemStack> db = dab.items;
 				
 				p.getInventory().addItem(db.get("MINOR"));
