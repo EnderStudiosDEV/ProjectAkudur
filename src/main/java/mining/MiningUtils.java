@@ -103,8 +103,7 @@ public class MiningUtils {
     
     public ItemStack getDrop(Material m) {
     	ItemDatabase dat = new ItemDatabase();
-    	dat.initTokens();
-    	dat.initDrops();
+    	dat.init();
     	
     	if(Utils.random(1, 20) == 20) {
     		ItemStack vo = new ItemStack(Material.STONE);

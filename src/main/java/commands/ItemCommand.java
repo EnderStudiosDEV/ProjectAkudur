@@ -19,9 +19,7 @@ public class ItemCommand implements CommandExecutor {
 				if(!p.isOp()) return true;
 				
 				ItemDatabase dab = new ItemDatabase();
-				dab.initStandardPickaxes();
-				dab.initDrops();
-				dab.initTokens();
+				dab.init();
 				HashMap<String, ItemStack> db = dab.items;
 				
 				if(args[0] != null) {

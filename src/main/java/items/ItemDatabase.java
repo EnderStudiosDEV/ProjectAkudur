@@ -86,24 +86,7 @@ public class ItemDatabase {
 		items.put("STONE_PICKAXE_3", ci.getBukkitItem());
 		
 		
-		/*
-		 * Special Pickaxes
-		 */
-		ci.mat = Material.DIAMOND_PICKAXE;
-		ci.baseBreakingPower = 9;
 		
-		ci.name = "Major";
-		ci.rarity = Rarity.FABLED;
-		ci.miningSpeed = 1;
-		ci.miningSpeedPercent = 210000;
-		
-		items.put("MAJOR", ci.getBukkitItem());
-		
-		ci.name = "Minor";
-		ci.miningSpeed = 8400;
-		ci.miningSpeedPercent = -75;
-		
-		items.put("MINOR", ci.getBukkitItem());
 	}
 	public void initDrops() {
 		CustomItem ci = new CustomItem();
@@ -129,8 +112,7 @@ public class ItemDatabase {
 		ci.name = "Diamond";
 		ci.mat = Material.DIAMOND;
 		items.put("DIAMOND", ci.getBukkitItem());
-	}
-	
+	}	
 	public void initTokens() {
 		CustomItem ci = new CustomItem();
 		ci.rarity = Rarity.COMMON;
@@ -155,5 +137,94 @@ public class ItemDatabase {
 		items.put("DIAMOND_VOUCHER", ci.getBukkitItem());
 		
 		
+	}
+	public void initSpecialPickaxes() {
+		// Setup
+		CustomItem ci = new CustomItem();
+		ci.rarity = Rarity.COMMON;
+		ci.mat = Material.WOODEN_PICKAXE;
+		ci.baseBreakingPower = 1;
+		
+		/*
+		 * Stone Tier
+		 */
+		ci.mat = Material.STONE_PICKAXE;
+		ci.baseBreakingPower = 3;
+		
+		ci.name = "Unique Stone Pickaxe";
+		ci.rarity = Rarity.RARE;
+		ci.miningSpeed = 150;
+		items.put("STONE_PICKAXE_V", ci.getBukkitItem());
+		/*
+		 * Iron Tier
+		 */
+		ci.mat = Material.IRON_PICKAXE;
+		ci.baseBreakingPower = 5;
+		ci.rarity = Rarity.EPIC;
+		
+		ci.name = "Iron Fusion Pickaxe";
+		ci.miningSpeed = 250;
+		ci.miningSpeedPercent = 75;
+		ci.miningFortune = 100;
+		items.put("IRON_FUSION_PICKAXE", ci.getBukkitItem());
+		
+		ci.name = "Iron Solar Pickaxe";
+		ci.miningSpeed = 250;
+		ci.miningSpeedPercent = 75;
+		ci.miningFortune = 100;
+		items.put("IRON_SOLAR_PICKAXE", ci.getBukkitItem());
+		
+		ci.name = "Iron Fiber Pickaxe";
+		ci.miningSpeed = 250;
+		ci.miningSpeedPercent = 75;
+		ci.miningFortune = 100;
+		items.put("IRON_FIBER_PICKAXE", ci.getBukkitItem());
+		/*
+		 * Gold Tier
+		 */
+		ci.mat = Material.GOLDEN_PICKAXE;
+		ci.baseBreakingPower = 6;
+		ci.rarity = Rarity.LEGENDARY;
+		
+		ci.name = "Gold Fusion Pickaxe";
+		ci.miningSpeed = 250;
+		ci.miningSpeedPercent = 75;
+		ci.miningFortune = 100;
+		items.put("GOLD_FUSION_PICKAXE", ci.getBukkitItem());
+		
+		ci.name = "Gold Solar Pickaxe";
+		ci.miningSpeed = 450;
+		ci.miningSpeedPercent = 200;
+		items.put("GOLD_SOLAR_PICKAXE", ci.getBukkitItem());
+		
+		ci.name = "Gold Fiber Pickaxe";
+		ci.miningSpeed = 450;
+		ci.miningSpeedPercent = 15;
+		ci.miningFortune = 250;
+		items.put("GOLD_FIBER_PICKAXE", ci.getBukkitItem());
+		/*
+		 * Diamond Tier Pickaxes
+		 */
+		ci.mat = Material.DIAMOND_PICKAXE;
+		ci.baseBreakingPower = 9;
+		
+		ci.name = "Major";
+		ci.rarity = Rarity.FABLED;
+		ci.miningSpeed = 1;
+		ci.miningSpeedPercent = 210000;
+		
+		items.put("MAJOR", ci.getBukkitItem());
+		
+		ci.name = "Minor";
+		ci.miningSpeed = 8400;
+		ci.miningSpeedPercent = -75;
+		
+		items.put("MINOR", ci.getBukkitItem());
+	}	
+	public void init() {
+		initStandardPickaxes();
+		initDrops();
+		initTokens();
+		initSpecialPickaxes();
 	}
 }
