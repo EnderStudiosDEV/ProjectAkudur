@@ -90,7 +90,7 @@ public class MiningHandler implements Listener {
     			progress.put(blockLocation, 0);
     			blockLocation.getBlock().setType(Material.BEDROCK);
     			if(miningFortune <= 1) {
-    				// event.getPlayer().getInventory().addItem(mu.getDrop(block));
+    				event.getPlayer().getInventory().addItem(mu.getDrop(block));
     			} else {
     				if(miningFortune % 100 == 0) {
     					for(int ic = 0; ic < (miningFortune / 100); ic++) {
