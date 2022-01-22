@@ -9,7 +9,7 @@ import commands.ItemCommand;
 import commands.RedeemCommand;
 import events.GenericEvents;
 import loops.Core;
-import mining.MiningHandler;
+import mining.MiningHandlerBeta;
 
 public class Main extends JavaPlugin {
 
@@ -25,7 +25,7 @@ public class Main extends JavaPlugin {
 		
 		// Initialize commands and events
 		createListener(new GenericEvents());
-		createListener(new MiningHandler());
+		createListener(new MiningHandlerBeta());
 		
 		createCommand(new RedeemCommand(), "redeem");
 		createCommand(new ItemCommand(), "ci");

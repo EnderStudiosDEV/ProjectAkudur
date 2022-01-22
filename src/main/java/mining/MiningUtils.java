@@ -4,7 +4,6 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
@@ -36,7 +35,7 @@ public class MiningUtils {
         }
     }
     
-    public boolean canMine(World w, Material m, int bp) {
+    public boolean canMine(Material m, int bp) {
     	if(m.equals(Material.STONE) ||
     			m.equals(Material.ANDESITE)) {
     		return true;

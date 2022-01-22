@@ -57,15 +57,15 @@ public class MiningHandler implements Listener
         	// If the player is not trying to mine air, do the following
             final NBTItem nbti = new NBTItem(i);
             nbti.setInteger("c", Integer.valueOf(nbti.getInteger("c") + 1));
-            Integer ms = nbti.getInteger("miningSpeed");
-            Integer mf = nbti.getInteger("miningFortune");
-            Integer xb = nbti.getInteger("miningXPBonus");
+            Integer miningSpeed = nbti.getInteger("miningSpeed");
+            Integer miningFortune = nbti.getInteger("miningFortune");
+            Integer miningXPBonus = nbti.getInteger("miningXPBonus");
             
             final Material bl = e.getClickedBlock().getType();
             final World world = e.getClickedBlock().getLocation().getWorld();
             final Location loc = e.getClickedBlock().getLocation();
             
-            if (ms > 0) {
+            if (miningSpeed > 0) {
             	// Update the item in hand
             	e.getPlayer().getInventory().setItemInMainHand(nbti.getItem());
             	
@@ -74,30 +74,34 @@ public class MiningHandler implements Listener
                 
                 mu.blockBreakEffect(e.getPlayer(), loc.toVector(), -1, r);
         		
-        		Integer op = mu.hardness(bl) / 10;
-        		Integer pp = 10;
+        		int blockPower = mu.hardness(bl) / 10;
+        		int percentageCounter = 10;
         		
-        		for(int nm=0; nm<10; nm++) {
-        			if(progress.get(loc) > (op * nm)) {
-        				pp--;
+        		// Get the block fracture visibility
+        		for(int loop=0; loop<10; loop++) {
+        			// If the progress of the block is bigger than (blockPower * nm)...
+        			if(progress.get(loc) > (blockPower * loop)) {
+        				// Increase the block fracture on the block.
+        				percentageCounter--;
         			}
         		}
         		
         		// Send the effect
-                mu.blockBreakEffect(e.getPlayer(), loc.toVector(), pp, r);
+                mu.blockBreakEffect(e.getPlayer(), loc.toVector(), percentageCounter, r);
                 
         		if(progress.get(loc) < 1) {
+        			// After it's done breaking, add the drops.
         			progress.put(loc, 0);
         			loc.getBlock().setType(Material.BEDROCK);
-        			if(mf <= 1) {
+        			if(miningFortune <= 1) {
         				e.getPlayer().getInventory().addItem(mu.getDrop(bl));
         			} else {
-        				if(mf % 100 == 0) {
-        					for(int ic = 0; ic < (mf / 100); ic++) {
+        				if(miningFortune % 100 == 0) {
+        					for(int ic = 0; ic < (miningFortune / 100); ic++) {
         						e.getPlayer().getInventory().addItem(mu.getDrop(bl));
         					}
         				} else {
-        					int mf2 = (int) Math.round(mf / 100);
+        					int mf2 = (int) Math.round(miningFortune / 100);
         					for(int ic = 0; ic < (mf2); ic++) {
         						e.getPlayer().getInventory().addItem(mu.getDrop(bl));
         					}
@@ -114,6 +118,8 @@ public class MiningHandler implements Listener
         				  }
         				}, 400L);
         		}
+
+                
         	} else {
         		progress.put(loc, mu.hardness(bl));
         	}
