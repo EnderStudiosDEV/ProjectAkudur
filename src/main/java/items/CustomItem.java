@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -35,9 +36,14 @@ public class CustomItem {
 		ItemMeta meta = i.getItemMeta();
 		meta.setLore(getLore());
 		meta.setDisplayName(rarity.code + "" + name);
+		meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+		meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
+		meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		meta.setUnbreakable(true);
 		i.setItemMeta(meta);
 		NBTItem nbti = getNBTItem(i);
 		i = nbti.getItem();
+		
 		return i;
 		
 	}

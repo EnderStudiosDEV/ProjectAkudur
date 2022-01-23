@@ -2,7 +2,6 @@ package mining;
 
 import java.util.HashMap;
 
-import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -71,9 +70,7 @@ public class MiningHandler implements Listener {
             // Stats of the block.
             int hardness = mu.hardness(block);
             int maxHardness = mu.hardness(block);
-            int fracture = 10;
             int miningTime = (hardness * 30) / miningSpeed;
-            Bukkit.broadcastMessage("time: " + miningTime + " fracture: " + fracture + " hardness: " + hardness);
             int r = utils.random(1,999);
             // If the block does not have a mining time, give it one.
             if(progress == null ||
@@ -82,7 +79,9 @@ public class MiningHandler implements Listener {
             }
             progress.put(blockLocation, (progress.get(blockLocation) - 1));
             // Get the block fracture visibility
-    		int visibility = (int) Math.floor((hardness / maxHardness) * 10);
+    		int visibility = (int) Math.floor(((float)(progress.get(blockLocation)) / ((float) miningTime)) * ((float) 10));
+    		visibility = visibility - miningTime;
+    		visibility *= -1;
     		mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), visibility, r);
     		
     		if(progress.get(blockLocation) < 1) {
@@ -106,7 +105,7 @@ public class MiningHandler implements Listener {
     			}
     			
     			
-    			mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), -1, r);
+    			mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), 1, r);
     			Main.instance.getServer().getScheduler().scheduleSyncDelayedTask(Main.instance, new Runnable() {
     				  public void run() {
     					  blockLocation.getBlock().setType(block);
@@ -118,5 +117,16 @@ public class MiningHandler implements Listener {
             // nbti.setInteger("c", 0);
         }
         
+	}
+	
+	@EventHandler
+	public void fixPickaxe(PlayerInteractEvent event) {
+		if(event.getAction() != Action.RIGHT_CLICK_AIR) return;
+		
+		final ItemStack i = event.getPlayer().getInventory().getItemInMainHand();
+		final NBTItem nbti = new NBTItem(i);
+        nbti.removeKey("c");
+        event.getPlayer().getInventory().setItemInMainHand(nbti.getItem());
+        event.getPlayer().sendMessage("Fixed your pickaxe!");
 	}
 }
