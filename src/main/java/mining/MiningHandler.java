@@ -80,9 +80,17 @@ public class MiningHandler implements Listener {
             progress.put(blockLocation, (progress.get(blockLocation) - 1));
             // Get the block fracture visibility
     		int visibility = (int) Math.floor(((float)(progress.get(blockLocation)) / ((float) miningTime)) * ((float) 10));
-    		visibility = visibility - miningTime;
+    		visibility -= 10;
     		visibility *= -1;
-    		mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), visibility, r);
+    		int x = (int) Math.floor(blockLocation.getX());
+    		int y = (int) Math.floor(blockLocation.getY());
+    		int z = (int) Math.floor(blockLocation.getZ());
+    		if(z < 0) {
+    			z *= -1000;
+    		}
+    		String idPre = x + "" + y + "3" + z;
+    		int id = Integer.parseInt(idPre);
+    		mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), visibility, id);
     		
     		if(progress.get(blockLocation) < 1) {
     			// After it's done breaking, add the drops.
@@ -105,11 +113,12 @@ public class MiningHandler implements Listener {
     			}
     			
     			
-    			mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), 1, r);
+    			mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), -1, id);
     			Main.instance.getServer().getScheduler().scheduleSyncDelayedTask(Main.instance, new Runnable() {
     				  public void run() {
     					  blockLocation.getBlock().setType(block);
     					  progress.put(blockLocation, null);
+    					  mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), -1, id);
     				  }
     				}, 20L);
     		}

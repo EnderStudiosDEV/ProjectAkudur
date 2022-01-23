@@ -109,6 +109,11 @@ public class ItemDatabase {
 		ci.mat = Material.IRON_INGOT;
 		items.put("IRON", ci.getBukkitItem());
 		
+		ci.name = "Gold Ingot";
+		ci.mat = Material.GOLD_INGOT;
+		items.put("GOLD_INGOT", ci.getBukkitItem());
+		
+		ci.rarity = Rarity.RARE;
 		ci.name = "Diamond";
 		ci.mat = Material.DIAMOND;
 		items.put("DIAMOND", ci.getBukkitItem());
@@ -162,23 +167,23 @@ public class ItemDatabase {
 		ci.baseBreakingPower = 5;
 		ci.rarity = Rarity.EPIC;
 		
-		ci.name = "Iron Fusion Pickaxe";
+		ci.name = "Hard Drive";
 		ci.miningSpeed = 250;
 		ci.miningSpeedPercent = 75;
 		ci.miningFortune = 100;
-		items.put("IRON_FUSION_PICKAXE", ci.getBukkitItem());
+		items.put("HARD_DRIVE", ci.getBukkitItem());
 		
-		ci.name = "Iron Solar Pickaxe";
+		ci.name = "Fragment";
 		ci.miningSpeed = 250;
 		ci.miningSpeedPercent = 75;
 		ci.miningFortune = 100;
-		items.put("IRON_SOLAR_PICKAXE", ci.getBukkitItem());
+		items.put("FRAGMENT", ci.getBukkitItem());
 		
-		ci.name = "Iron Fiber Pickaxe";
+		ci.name = "Prevalence";
 		ci.miningSpeed = 250;
 		ci.miningSpeedPercent = 75;
 		ci.miningFortune = 100;
-		items.put("IRON_FIBER_PICKAXE", ci.getBukkitItem());
+		items.put("PREVALENCE", ci.getBukkitItem());
 		/*
 		 * Gold Tier
 		 */
@@ -186,27 +191,43 @@ public class ItemDatabase {
 		ci.baseBreakingPower = 6;
 		ci.rarity = Rarity.LEGENDARY;
 		
-		ci.name = "Gold Fusion Pickaxe";
+		ci.name = "Conservation";
 		ci.miningSpeed = 250;
 		ci.miningSpeedPercent = 75;
 		ci.miningFortune = 100;
-		items.put("GOLD_FUSION_PICKAXE", ci.getBukkitItem());
+		items.put("CONSERVATION", ci.getBukkitItem());
 		
-		ci.name = "Gold Solar Pickaxe";
+		ci.name = "Surround";
 		ci.miningSpeed = 450;
 		ci.miningSpeedPercent = 200;
-		items.put("GOLD_SOLAR_PICKAXE", ci.getBukkitItem());
+		ci.miningFortune = 75;
+		items.put("SURROUND", ci.getBukkitItem());
 		
-		ci.name = "Gold Fiber Pickaxe";
+		ci.name = "Extension";
 		ci.miningSpeed = 450;
 		ci.miningSpeedPercent = 15;
-		ci.miningFortune = 250;
-		items.put("GOLD_FIBER_PICKAXE", ci.getBukkitItem());
+		ci.miningFortune = 350;
+		items.put("EXTENSION", ci.getBukkitItem());
+		
+		ci.name = "Statue's Demise";
+		ci.miningSpeed = 350;
+		ci.miningSpeedPercent = 300;
+		ci.miningFortune = 0;
+		ci.miningXPBonus = 0;
+		items.put("STATUES_DEMISE", ci.getBukkitItem());
+		
+		ci.name = "Absolvent";
+		ci.miningSpeed = 250;
+		ci.miningSpeedPercent = 100;
+		ci.miningFortune = 0;
+		ci.miningXPBonus = 400;
+		items.put("ABSOLVENT", ci.getBukkitItem());
 		/*
 		 * Diamond Tier Pickaxes
 		 */
 		ci.mat = Material.DIAMOND_PICKAXE;
 		ci.baseBreakingPower = 9;
+		ci.miningFortune = 0;
 		
 		ci.name = "Major";
 		ci.rarity = Rarity.FABLED;
@@ -215,11 +236,45 @@ public class ItemDatabase {
 		
 		items.put("MAJOR", ci.getBukkitItem());
 		
-		ci.name = "Minor";
-		ci.miningSpeed = 8400;
-		ci.miningSpeedPercent = -75;
+		ci.name = "Oblivion";
+		ci.miningSpeed = 420;
+		ci.miningSpeedPercent = 600;
+		ci.miningXPBonus = 200;
+		ci.miningFortune = 0;
 		
-		items.put("MINOR", ci.getBukkitItem());
+		items.put("OBLIVION", ci.getBukkitItem());
+		
+		ci.name = "Fantasy";
+		ci.miningSpeed = 300;
+		ci.miningSpeedPercent = 300;
+		ci.miningXPBonus = 300;
+		ci.miningFortune = 300;
+		
+		items.put("FANTASY", ci.getBukkitItem());
+		
+		ci.name = "Ambivalence";
+		ci.miningSpeed = 500;
+		ci.miningSpeedPercent = 500;
+		ci.miningXPBonus = 400;
+		ci.miningFortune = 400;
+		
+		items.put("AMBIVALENCE", ci.getBukkitItem());
+		
+		ci.name = "Mithraic";
+		ci.miningSpeed = 400;
+		ci.miningSpeedPercent = 400;
+		ci.miningFortune = 0;
+		ci.miningXPBonus = 900;
+		
+		items.put("MITHRAIC", ci.getBukkitItem());
+		
+		ci.name = "Catalonia";
+		ci.miningSpeed = 100;
+		ci.miningSpeedPercent = 400;
+		ci.miningFortune = -100;
+		ci.miningXPBonus = 12000;
+		
+		items.put("CATALONIA", ci.getBukkitItem());
 	}	
 	public void init() {
 		initStandardPickaxes();

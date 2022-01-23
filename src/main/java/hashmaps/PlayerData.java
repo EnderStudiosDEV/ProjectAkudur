@@ -10,7 +10,6 @@ public class PlayerData {
 	public int objective;
 	public int coins;
 	
-	
 	public PlayerData(Player p) {
 		super();
 	}

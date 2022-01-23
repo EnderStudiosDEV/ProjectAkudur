@@ -48,23 +48,38 @@ public class MiningUtils {
     			return true;
     		}
     	}
-    	if(m.equals(Material.COAL_ORE)) {
+    	if(m.equals(Material.IRON_ORE)) {
     		if(bp >= 3) {
     			return true;
     		}
     	}
-    	if(m.equals(Material.IRON_ORE)) {
+    	if(m.equals(Material.DIAMOND_ORE)) {
     		if(bp >= 4) {
     			return true;
     		}
     	}
-    	if(m.equals(Material.DIAMOND_ORE)) {
+    	if(m.equals(Material.EMERALD_ORE)) {
     		if(bp >= 5) {
     			return true;
     		}
     	}
-    	if(m.equals(Material.EMERALD_ORE)) {
+    	if(m.equals(Material.OBSIDIAN)) {
     		if(bp >= 6) {
+    			return true;
+    		}
+    	}
+    	if(m.equals(Material.ANCIENT_DEBRIS)) {
+    		if(bp >= 7) {
+    			return true;
+    		}
+    	}
+    	if(m.equals(Material.END_STONE)) {
+    		if(bp >= 8) {
+    			return true;
+    		}
+    	}
+    	if(m.equals(Material.PURPLE_TERRACOTTA)) {
+    		if(bp >= 9) {
     			return true;
     		}
     	}
@@ -80,22 +95,34 @@ public class MiningUtils {
     	}
     	if(m.equals(Material.STONE) ||
     			m.equals(Material.ANDESITE)) {
-    		return 15;
-    	}
-    	if(m.equals(Material.COAL_ORE)) {
-    	    return 30;
+    		return 25;
     	}
     	if(m.equals(Material.COPPER_ORE)) {
-    	    return 50;
+    	    return 65;
     	}
     	if(m.equals(Material.IRON_ORE)) {
-    	    return 90;
+    	    return 125;
     	}
     	if(m.equals(Material.DIAMOND_ORE)) {
-    	    return 130;
+    	    return 250;
     	}
     	if(m.equals(Material.EMERALD_ORE)) {
-    	    return 190;
+    	    return 340;
+    	}
+    	if(m.equals(Material.EMERALD_ORE)) {
+    	    return 340;
+    	}
+    	if(m.equals(Material.OBSIDIAN)) {
+    	    return 670;
+    	}
+    	if(m.equals(Material.ANCIENT_DEBRIS)) {
+    	    return 910;
+    	}
+    	if(m.equals(Material.END_STONE)) {
+    	    return 1400;
+    	}
+    	if(m.equals(Material.PURPLE_TERRACOTTA)) {
+    	    return 1980;
     	}
 		return 1000000;
 	
@@ -121,16 +148,19 @@ public class MiningUtils {
     		return dat.items.get("COAL");
     	}
     	if(m.equals(Material.COPPER_ORE)) {
-    		return dat.items.get("COAL");
+    		return dat.items.get("COPPER");
     	}
     	if(m.equals(Material.IRON_ORE)) {
-    		return dat.items.get("COAL");
+    		return dat.items.get("IRON_INGOT");
+    	}
+    	if(m.equals(Material.GOLD_ORE)) {
+    		return dat.items.get("GOLD_INGOT");
     	}
     	if(m.equals(Material.DIAMOND_ORE)) {
-    		return dat.items.get("COAL");
+    		return dat.items.get("DIAMOND");
     	}
     	if(m.equals(Material.EMERALD_ORE)) {
-    		return dat.items.get("COAL");
+    		return dat.items.get("EMERALD");
     	}
     	
     	

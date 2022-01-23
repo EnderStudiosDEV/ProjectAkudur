@@ -22,9 +22,13 @@ public class Announcements {
 				String message = "";
 				
 				if(rng == 1) {
-					message = "Hey you! Want to support Halt Mines? Join our discord at <link>!";
+					message = "Hey you! Want to support Akudur? Join our discord at <link>!";
 				} else if (rng == 2) {
-					message = "Thanks for playing Halt Mines! If you're confused, feel free to ask a staff member for help at any time!";
+					message = "Thanks for playing Akudur! If you're confused, feel free to ask a staff member for help at any time!";
+				} else if (rng == 3) {
+					message = "Thanks to Enderae for coming up with the server name!";
+				} else if (rng == 4) {
+					message = "Thanks to all of our playtesters for ensuring quality!";
 				}
 				
 				Bukkit.broadcastMessage("§c[Announcement] §f" + message);
@@ -34,13 +38,13 @@ public class Announcements {
 				String message = "";
 				
 				if(rng == 1) {
-					message = "If you're lost, you can return to the Camp at 0, 0!";
+					message = "If you fall in the void, you just get teleported back to spawn!";
 				} else if (rng == 2) {
-					message = "You can get better pickaxes by completing Objectives and buying from Shops!";
+					message = "You can get better pickaxes by buying from Merchants!";
 				} else if (rng == 3) {
-					message = "Don't try to powerlevel through the game. Instead, take it slow and complete Objectives for a much more fun experience. And if you do, you'll run out of content too fast.";
+					message = "Remember to weigh stats, and figure out which pickaxes suit your needs!";
 				} else if (rng == 4) {
-					message = "The Statue mechanic is inspired by a good friend of mine, Ender_Stone.";
+					message = "You can quickly see your stats on the action bar!";
 				} else if (rng == 5) {
 					message = "Remember to take breaks to eat, drink water, and take care of yourself!";
 				} else if (rng == 6) {

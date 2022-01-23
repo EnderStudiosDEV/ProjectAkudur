@@ -8,6 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import commands.ItemCommand;
 import commands.RedeemCommand;
 import events.GenericEvents;
+import inventories.HelpCore;
 import loops.Core;
 import mining.MiningHandler;
 
@@ -30,6 +31,7 @@ public class Main extends JavaPlugin {
 		createCommand(new RedeemCommand(), "redeem");
 		createCommand(new ItemCommand(), "ci");
 		
+		createListener(new HelpCore());
 		
 		Core c = new Core();
 		c.callLoop();

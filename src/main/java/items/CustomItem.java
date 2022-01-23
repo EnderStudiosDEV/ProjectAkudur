@@ -53,7 +53,7 @@ public class CustomItem {
 		Utils utils = new Utils();
 		List<String> lore = new ArrayList<String>();
 		if(type == ItemType.TOOL) {
-			lore.add("§7" + baseBreakingPower + " Breaking Power");
+			lore.add("§Breaking Power " + baseBreakingPower);
 			lore.add("");
 			if(miningSpeed > 0) {
 				lore.add("§a+" + utils.format(miningSpeed) + " §7Mining Speed");
@@ -71,20 +71,30 @@ public class CustomItem {
 				lore.add("§c-" + miningXPBonus + "§c% §7XP Bonus");
 			}
 			lore.add("");
+			boolean addSpace = false;
 			if(bonusBreakingPower > 0) {
 				lore.add("§a+" + bonusBreakingPower + " §atier §7Breaking Power");
+				addSpace = true;
 			} else if (bonusBreakingPower < 0) {
 				lore.add("§c-" + bonusBreakingPower + " §ctier §7Breaking Power");
+				addSpace = true;
 			}
 			if(miningSpeedPercent > 0) {
 				lore.add("§a+" + utils.format(miningSpeedPercent) + "§a% §7Mining Speed");
+				addSpace = true;
 			} else if (miningSpeedPercent < 0) {
 				lore.add("§c-" + utils.format(miningSpeedPercent) + "§c% §7Mining Speed");
+				addSpace = true;
 			}
 			if(miningFortunePercent > 0) {
 				lore.add("§a+" + utils.format(miningFortunePercent) + "§a% §7Mining Fortune");
+				addSpace = true;
 			} else if (miningFortunePercent < 0) {
 				lore.add("§c-" + utils.format(miningFortunePercent) + "§c% §7Mining Fortune");
+				addSpace = true;
+			}
+			if(addSpace) {
+				lore.add("");
 			}
 		}
 		lore.add(rarity.desc);
