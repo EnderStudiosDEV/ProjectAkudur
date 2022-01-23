@@ -43,7 +43,7 @@ public class ActionBar {
 	        board.updateTitle("§5§lPROJECT AKUDUR");
 	        List<String> lines = new ArrayList<String>();
 	        
-	        lines.add("§7Running 0.5.4.26");
+	        lines.add("§7Running 0.6.1.28");
 	        lines.add("");
 	        lines.add("§aCoins: §2$§a0");
 	        lines.add("");

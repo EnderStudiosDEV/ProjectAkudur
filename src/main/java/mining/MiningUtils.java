@@ -95,34 +95,34 @@ public class MiningUtils {
     	}
     	if(m.equals(Material.STONE) ||
     			m.equals(Material.ANDESITE)) {
-    		return 25;
+    		return 50;
     	}
     	if(m.equals(Material.COPPER_ORE)) {
-    	    return 65;
+    	    return 115;
     	}
     	if(m.equals(Material.IRON_ORE)) {
-    	    return 125;
+    	    return 215;
     	}
     	if(m.equals(Material.DIAMOND_ORE)) {
-    	    return 250;
+    	    return 350;
     	}
     	if(m.equals(Material.EMERALD_ORE)) {
-    	    return 340;
+    	    return 470;
     	}
     	if(m.equals(Material.EMERALD_ORE)) {
-    	    return 340;
+    	    return 590;
     	}
     	if(m.equals(Material.OBSIDIAN)) {
-    	    return 670;
+    	    return 730;
     	}
     	if(m.equals(Material.ANCIENT_DEBRIS)) {
-    	    return 910;
+    	    return 1010;
     	}
     	if(m.equals(Material.END_STONE)) {
-    	    return 1400;
+    	    return 1200;
     	}
     	if(m.equals(Material.PURPLE_TERRACOTTA)) {
-    	    return 1980;
+    	    return 2180;
     	}
 		return 1000000;
 	

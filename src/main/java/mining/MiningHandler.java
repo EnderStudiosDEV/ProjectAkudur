@@ -86,7 +86,7 @@ public class MiningHandler implements Listener {
     		int y = (int) Math.floor(blockLocation.getY());
     		int z = (int) Math.floor(blockLocation.getZ());
     		if(z < 0) {
-    			z *= -1000;
+    			z *= -100;
     		}
     		String idPre = x + "" + y + "3" + z;
     		int id = Integer.parseInt(idPre);
@@ -96,7 +96,13 @@ public class MiningHandler implements Listener {
     			// After it's done breaking, add the drops.
     			progress.put(blockLocation, 0);
     			blockLocation.getBlock().setType(Material.BEDROCK);
-    			if(miningFortune <= 1) {
+    			if(miningFortune <= 99) {
+    				if(miningFortune > 0) {
+    					int rng = Utils.random(0, 100);
+    					if(rng <= miningFortune) {
+    						event.getPlayer().getInventory().addItem(mu.getDrop(block));
+    					}
+    				}
     				event.getPlayer().getInventory().addItem(mu.getDrop(block));
     			} else {
     				if(miningFortune % 100 == 0) {
@@ -107,6 +113,12 @@ public class MiningHandler implements Listener {
     					int mf2 = (int) Math.round(miningFortune / 100);
     					for(int ic = 0; ic < (mf2); ic++) {
     						event.getPlayer().getInventory().addItem(mu.getDrop(block));
+    					}
+    					if((miningFortune - mf2) <= 99) {
+    						int rng = Utils.random(0, 100);
+        					if(rng <= miningFortune) {
+        						event.getPlayer().getInventory().addItem(mu.getDrop(block));
+        					}
     					}
     					
     				}
