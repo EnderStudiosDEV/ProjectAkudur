@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -19,6 +20,7 @@ public class CustomItem {
 	public Material mat;
 	public ItemType type = ItemType.TOOL;
 	public String id;
+	public boolean shiny = false;
 	
 	// Mining Stats
 	public int miningSpeed = 0;
@@ -43,7 +45,9 @@ public class CustomItem {
 		i.setItemMeta(meta);
 		NBTItem nbti = getNBTItem(i);
 		i = nbti.getItem();
-		
+		if(shiny) {
+			i.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
+		}
 		return i;
 		
 	}

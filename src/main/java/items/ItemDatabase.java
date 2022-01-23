@@ -100,11 +100,18 @@ public class ItemDatabase {
 		ci.mat = Material.COPPER_INGOT;
 		items.put("COPPER", ci.getBukkitItem());
 		
-		ci.name = "Coal";
-		ci.mat = Material.COAL;
-		items.put("COAL", ci.getBukkitItem());
-		
 		ci.rarity = Rarity.UNCOMMON;
+		
+		ci.shiny = true;
+		ci.mat = Material.STONE;
+		ci.name = "Compressed Stone";
+		items.put("COMPRESSED_STONE", ci.getBukkitItem());
+		
+		ci.name = "Compressed Copper";
+		ci.mat = Material.COPPER_INGOT;
+		items.put("COMPRESSED_COPPER", ci.getBukkitItem());
+		
+		ci.shiny = false;
 		ci.name = "Iron Ingot";
 		ci.mat = Material.IRON_INGOT;
 		items.put("IRON", ci.getBukkitItem());
@@ -114,6 +121,17 @@ public class ItemDatabase {
 		items.put("GOLD_INGOT", ci.getBukkitItem());
 		
 		ci.rarity = Rarity.RARE;
+		ci.shiny = true;
+		ci.name = "Compressed Iron Ingot";
+		ci.mat = Material.IRON_INGOT;
+		items.put("COMPRESSED_IRON", ci.getBukkitItem());
+		
+		ci.name = "Compressed Gold Ingot";
+		ci.mat = Material.GOLD_INGOT;
+		items.put("COMPRESSED_GOLD_INGOT", ci.getBukkitItem());
+		
+		ci.shiny = false;
+		
 		ci.name = "Diamond";
 		ci.mat = Material.DIAMOND;
 		items.put("DIAMOND", ci.getBukkitItem());
