@@ -57,7 +57,7 @@ public class CustomItem {
 		Utils utils = new Utils();
 		List<String> lore = new ArrayList<String>();
 		if(type == ItemType.TOOL) {
-			lore.add("§Breaking Power " + baseBreakingPower);
+			lore.add("§7Breaking Power " + baseBreakingPower);
 			lore.add("");
 			if(miningSpeed > 0) {
 				lore.add("§a+" + utils.format(miningSpeed) + " §7Mining Speed");

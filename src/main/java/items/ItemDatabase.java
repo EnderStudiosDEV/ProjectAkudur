@@ -118,7 +118,7 @@ public class ItemDatabase {
 		
 		ci.name = "Gold Ingot";
 		ci.mat = Material.GOLD_INGOT;
-		items.put("GOLD_INGOT", ci.getBukkitItem());
+		items.put("GOLD", ci.getBukkitItem());
 		
 		ci.rarity = Rarity.RARE;
 		ci.shiny = true;
@@ -128,7 +128,7 @@ public class ItemDatabase {
 		
 		ci.name = "Compressed Gold Ingot";
 		ci.mat = Material.GOLD_INGOT;
-		items.put("COMPRESSED_GOLD_INGOT", ci.getBukkitItem());
+		items.put("COMPRESSED_GOLD", ci.getBukkitItem());
 		
 		ci.shiny = false;
 		

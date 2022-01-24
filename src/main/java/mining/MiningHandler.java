@@ -15,6 +15,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
 import de.tr7zw.nbtapi.NBTItem;
+import hashmaps.HashMaps;
 import main.Main;
 import main.Utils;
 
@@ -96,6 +97,9 @@ public class MiningHandler implements Listener {
     			// After it's done breaking, add the drops.
     			progress.put(blockLocation, 0);
     			blockLocation.getBlock().setType(Material.BEDROCK);
+
+    			String uuid = event.getPlayer().getUniqueId().toString();
+    			HashMaps.xp.put(uuid, HashMaps.xp.get(uuid) + mu.xp(block, miningXPBonus));
     			if(miningFortune <= 99) {
     				if(miningFortune > 0) {
     					int rng = Utils.random(0, 100);
@@ -128,7 +132,7 @@ public class MiningHandler implements Listener {
     			mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), -1, id);
     			Main.instance.getServer().getScheduler().scheduleSyncDelayedTask(Main.instance, new Runnable() {
     				  public void run() {
-    					  blockLocation.getBlock().setType(block);
+    					  blockLocation.getBlock().setType(mu.replenish(blockLocation));
     					  progress.put(blockLocation, null);
     					  mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), -1, id);
     				  }

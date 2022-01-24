@@ -3,6 +3,7 @@ package mining;
 import java.lang.reflect.InvocationTargetException;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -144,27 +145,92 @@ public class MiningUtils {
     			m.equals(Material.ANDESITE)) {
     		return dat.items.get("STONE");
     	}
-    	if(m.equals(Material.COAL_ORE)) {
-    		return dat.items.get("COAL");
-    	}
     	if(m.equals(Material.COPPER_ORE)) {
     		return dat.items.get("COPPER");
     	}
     	if(m.equals(Material.IRON_ORE)) {
-    		return dat.items.get("IRON_INGOT");
+    		return dat.items.get("IRON");
     	}
     	if(m.equals(Material.GOLD_ORE)) {
-    		return dat.items.get("GOLD_INGOT");
+    		return dat.items.get("GOLD");
     	}
     	if(m.equals(Material.DIAMOND_ORE)) {
     		return dat.items.get("DIAMOND");
-    	}
-    	if(m.equals(Material.EMERALD_ORE)) {
-    		return dat.items.get("EMERALD");
     	}
     	
     	
 		return null;
     }
-    
+    public Integer xp(Material m, int miningXPBonus) {
+    	int dol = 0;
+    	if(m.equals(Material.STONE) ||
+    			m.equals(Material.ANDESITE)) {
+    		dol = 5;
+    	}
+    	if(m.equals(Material.COPPER_ORE)) {
+    		dol = 11;
+    	}
+    	if(m.equals(Material.IRON_ORE)) {
+    		dol = 21;
+    	}
+    	if(m.equals(Material.DIAMOND_ORE)) {
+    		dol = 35;
+    	}
+    	if(m.equals(Material.EMERALD_ORE)) {
+    		dol =dol = 47;
+    	}
+    	if(m.equals(Material.EMERALD_ORE)) {
+    		dol = 59;
+    	}
+    	if(m.equals(Material.OBSIDIAN)) {
+    		dol = 73;
+    	}
+    	if(m.equals(Material.ANCIENT_DEBRIS)) {
+    		dol = 101;
+    	}
+    	if(m.equals(Material.END_STONE)) {
+    		dol = 120;
+    	}
+    	if(m.equals(Material.PURPLE_TERRACOTTA)) {
+    		dol = 218;
+    	}
+		return dol * ((miningXPBonus + 100) / 100);
+	
+    }
+    public Material replenish(Location loc) {
+    	Material mat = stoneRng();
+    	if(loc.distance(new Location(Bukkit.getWorld("build"), 19, 85, 36)) < 15) {
+    		if(Utils.random(1,2) == 1) {
+    			mat = Material.COPPER_ORE;
+    		}
+    	}
+    	if(loc.distance(new Location(Bukkit.getWorld("build"), -9, 85, 72)) < 15) {
+    		if(Utils.random(1,2) == 1) {
+    			mat = Material.IRON_ORE;
+    		}
+    	}
+    	if(loc.distance(new Location(Bukkit.getWorld("build"), 57, 85, 74)) < 20) {
+    		if(Utils.random(1,2) == 1) {
+    			mat = Material.DIAMOND_ORE;
+    		}
+    	}
+    	if(loc.distance(new Location(Bukkit.getWorld("build"), -16, 85, 6)) < 15) {
+    		if(Utils.random(1,2) == 1) {
+    			mat = Material.GOLD_ORE;
+    		}
+    	}
+    	if(loc.distance(new Location(Bukkit.getWorld("build"), -31, 85, 25)) < 25) {
+    		if(Utils.random(1,2) == 1) {
+    			mat = Material.GOLD_ORE;
+    		}
+    	}
+    	return mat;
+    }
+    public Material stoneRng() {
+    	if(Utils.random(1,2) == 1) {
+    		return Material.STONE;
+    	} else {
+    		return Material.ANDESITE;
+    	}
+    }
 }

@@ -13,6 +13,7 @@ public class Core {
 	        public void run() {
 	        	Announcements.call();
 	        	ActionBar.call();
+	        	PlayerStatManager.call();
 	        }
 	    },1, 1);
 	}

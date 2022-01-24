@@ -11,6 +11,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import hashmaps.HashMaps;
 import items.ItemDatabase;
 
 public class GenericEvents implements Listener {
@@ -32,6 +33,10 @@ public class GenericEvents implements Listener {
 			
 			e.getPlayer().getInventory().addItem(dab.items.get("WOODEN_PICKAXE_1"));
 			e.getPlayer().teleport(new Location(Bukkit.getWorld("build"), 20, 85, -65));
+		}
+		if(HashMaps.level.get(e.getPlayer().getUniqueId().toString()) == null) {
+			HashMaps.level.put(e.getPlayer().getUniqueId().toString(), 1);
+			HashMaps.xp.put(e.getPlayer().getUniqueId().toString(), 0);
 		}
 	}
 	
