@@ -54,16 +54,17 @@ public class MiningUtils {
     			return true;
     		}
     	}
-    	if(m.equals(Material.DIAMOND_ORE)) {
+    	if(m.equals(Material.GOLD_ORE)) {
     		if(bp >= 4) {
     			return true;
     		}
     	}
-    	if(m.equals(Material.EMERALD_ORE)) {
+    	if(m.equals(Material.DIAMOND_ORE)) {
     		if(bp >= 5) {
     			return true;
     		}
     	}
+    	
     	if(m.equals(Material.OBSIDIAN)) {
     		if(bp >= 6) {
     			return true;
@@ -104,14 +105,11 @@ public class MiningUtils {
     	if(m.equals(Material.IRON_ORE)) {
     	    return 215;
     	}
+    	if(m.equals(Material.GOLD_ORE)) {
+    	    return 340;
+    	}
     	if(m.equals(Material.DIAMOND_ORE)) {
-    	    return 350;
-    	}
-    	if(m.equals(Material.EMERALD_ORE)) {
-    	    return 470;
-    	}
-    	if(m.equals(Material.EMERALD_ORE)) {
-    	    return 590;
+    	    return 550;
     	}
     	if(m.equals(Material.OBSIDIAN)) {
     	    return 730;
@@ -199,27 +197,27 @@ public class MiningUtils {
     }
     public Material replenish(Location loc) {
     	Material mat = stoneRng();
-    	if(loc.distance(new Location(Bukkit.getWorld("build"), 19, 85, 36)) < 15) {
+    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), 19, 85, 36)) < 15) {
     		if(Utils.random(1,2) == 1) {
     			mat = Material.COPPER_ORE;
     		}
     	}
-    	if(loc.distance(new Location(Bukkit.getWorld("build"), -9, 85, 72)) < 15) {
+    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), -9, 85, 72)) < 15) {
     		if(Utils.random(1,2) == 1) {
     			mat = Material.IRON_ORE;
     		}
     	}
-    	if(loc.distance(new Location(Bukkit.getWorld("build"), 57, 85, 74)) < 20) {
+    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), 57, 85, 74)) < 20) {
     		if(Utils.random(1,2) == 1) {
     			mat = Material.DIAMOND_ORE;
     		}
     	}
-    	if(loc.distance(new Location(Bukkit.getWorld("build"), -16, 85, 6)) < 15) {
+    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), -16, 85, 6)) < 15) {
     		if(Utils.random(1,2) == 1) {
     			mat = Material.GOLD_ORE;
     		}
     	}
-    	if(loc.distance(new Location(Bukkit.getWorld("build"), -31, 85, 25)) < 25) {
+    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), -31, 85, 25)) < 25) {
     		if(Utils.random(1,2) == 1) {
     			mat = Material.GOLD_ORE;
     		}
