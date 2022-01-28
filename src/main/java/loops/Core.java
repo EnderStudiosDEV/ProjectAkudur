@@ -12,8 +12,9 @@ public class Core {
 		Main.instance.getServer().getScheduler().scheduleSyncRepeatingTask(Main.instance, new Runnable() {
 	        public void run() {
 	        	Announcements.call();
-	        	ActionBar.call();
+	        	EssentialDisplays.call();
 	        	PlayerStatManager.call();
+	        	AutoPickaxe.call();
 	        }
 	    },1, 1);
 	}

@@ -10,15 +10,15 @@ public class PlayerStatManager {
 		for(Player p : Bukkit.getOnlinePlayers()) {
 			String uuid = p.getUniqueId().toString();
 			
-			int level = HashMaps.level.get(uuid);
-			int xp = HashMaps.xp.get(uuid);
-			if(xp > xpReq(level)) {
-				xp -= xpReq(level);
+			Long level = HashMaps.level.get(uuid);
+			Long xp = HashMaps.xp.get(uuid);
+			if(xp > xpReq(level.intValue())) {
+				xp -= xpReq(level.intValue());
 				level += 1;
 				p.sendMessage("§b§lLEVEL UP! §7§rYou have leveled up!");
 			}
-			p.setLevel(level);
-			float x = ((float) xp / (float) xpReq(level));
+			p.setLevel(level.intValue());
+			float x = ((float) xp / (float) xpReq(level.intValue()));
 			if(x > 1) {
 				x = 1;
 			}
@@ -33,45 +33,30 @@ public class PlayerStatManager {
 			default:
 				return 2147483647;
 			case 1:
-				return 40;
+				return 1120;
 			case 2:
-				return 60;
+				return 3060;
 			case 3:
-				return 100;
+				return 7400;
 			case 4:
-				return 150;
+				return 16560;
 			case 5:
-				return 210;
+				return 31320;
 			case 6:
-				return 270;
+				return 51840;
 			case 7:
-				return 390;
+				return 90720;
 			case 8:
-				return 480;
+				return 136800;
 			case 9:
-				return 560;
+				return 260000;
 			case 10:
-				return 700;
+				return 479500;
 			case 11:
-				return 850;
+				return 871750;
 			case 12:
-				return 1000;
-			case 13:
-				return 1200;
-			case 14:
-				return 1500;
-			case 15:
-				return 2000;
-			case 16:
-				return 2400;
-			case 17:
-				return 3200;
-			case 18:
-				return 4000;
-			case 19:
-				return 5000;
-			case 20:
-				return 6000;
+				return 1102500;
+			
 		}
 	}
 

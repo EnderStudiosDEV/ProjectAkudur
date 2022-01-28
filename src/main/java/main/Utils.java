@@ -3,7 +3,9 @@ package main;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public class Utils {
 
@@ -54,6 +56,79 @@ public class Utils {
 	public String format(int num) {
 		DecimalFormat formatter = new DecimalFormat("#,###");
 		return formatter.format(num);
+	}
+	
+	public ItemStack[] armor(long lvl) {
+		ItemStack[] armor = new ItemStack[10];
+		armor[1] = new ItemStack(Material.LEATHER_HELMET);
+		armor[2] = new ItemStack(Material.LEATHER_CHESTPLATE);
+		armor[3] = new ItemStack(Material.LEATHER_LEGGINGS);
+		armor[4] = new ItemStack(Material.LEATHER_BOOTS);
+		if(lvl >= 3) {
+			armor[4] = new ItemStack(Material.CHAINMAIL_BOOTS);
+		}
+		if(lvl >= 6) {
+			armor[1] = new ItemStack(Material.CHAINMAIL_HELMET);
+		}
+		if(lvl >= 9) {
+			armor[3] = new ItemStack(Material.CHAINMAIL_LEGGINGS);
+		}
+		if(lvl >= 12) {
+			armor[2] = new ItemStack(Material.CHAINMAIL_CHESTPLATE);
+		}
+		
+		if(lvl >= 15) {
+			armor[4] = new ItemStack(Material.GOLDEN_BOOTS);
+		}
+		if(lvl >= 18) {
+			armor[1] = new ItemStack(Material.GOLDEN_HELMET);
+		}
+		if(lvl >= 21) {
+			armor[3] = new ItemStack(Material.GOLDEN_LEGGINGS);
+		}
+		if(lvl >= 24) {
+			armor[2] = new ItemStack(Material.GOLDEN_CHESTPLATE);
+		}
+		
+		if(lvl >= 27) {
+			armor[4] = new ItemStack(Material.IRON_BOOTS);
+		}
+		if(lvl >= 30) {
+			armor[1] = new ItemStack(Material.IRON_HELMET);
+		}
+		if(lvl >= 33) {
+			armor[3] = new ItemStack(Material.IRON_LEGGINGS);
+		}
+		if(lvl >= 36) {
+			armor[2] = new ItemStack(Material.IRON_CHESTPLATE);
+		}
+		
+		if(lvl >= 39) {
+			armor[4] = new ItemStack(Material.DIAMOND_BOOTS);
+		}
+		if(lvl >= 42) {
+			armor[1] = new ItemStack(Material.DIAMOND_HELMET);
+		}
+		if(lvl >= 45) {
+			armor[3] = new ItemStack(Material.DIAMOND_LEGGINGS);
+		}
+		if(lvl >= 48) {
+			armor[2] = new ItemStack(Material.DIAMOND_CHESTPLATE);
+		}
+		
+		if(lvl >= 51) {
+			armor[4] = new ItemStack(Material.NETHERITE_BOOTS);
+		}
+		if(lvl >= 54) {
+			armor[1] = new ItemStack(Material.NETHERITE_HELMET);
+		}
+		if(lvl >= 57) {
+			armor[3] = new ItemStack(Material.NETHERITE_LEGGINGS);
+		}
+		if(lvl >= 60) {
+			armor[2] = new ItemStack(Material.NETHERITE_CHESTPLATE);
+		}
+		return armor;
 	}
 	
 }

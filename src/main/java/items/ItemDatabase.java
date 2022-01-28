@@ -186,15 +186,15 @@ public class ItemDatabase {
 		ci.rarity = Rarity.EPIC;
 		
 		ci.name = "Hard Drive";
-		ci.miningSpeed = 250;
-		ci.miningSpeedPercent = 75;
-		ci.miningFortune = 100;
+		ci.miningSpeed = 1;
+		ci.miningSpeedPercent = 39000;
+		ci.miningFortune = 10;
 		items.put("HARD_DRIVE", ci.getBukkitItem());
 		
 		ci.name = "Fragment";
 		ci.miningSpeed = 250;
-		ci.miningSpeedPercent = 75;
-		ci.miningFortune = 100;
+		ci.miningSpeedPercent = 155;
+		ci.miningFortune = 20;
 		items.put("FRAGMENT", ci.getBukkitItem());
 		
 		ci.name = "Prevalence";
@@ -202,6 +202,11 @@ public class ItemDatabase {
 		ci.miningSpeedPercent = 75;
 		ci.miningFortune = 100;
 		items.put("PREVALENCE", ci.getBukkitItem());
+		
+		ci.name = "Assembly";
+		ci.miningSpeed = 250;
+		ci.miningFortune = 300;
+		items.put("ASSEMBLY", ci.getBukkitItem());
 		/*
 		 * Gold Tier
 		 */
@@ -293,6 +298,21 @@ public class ItemDatabase {
 		ci.miningXPBonus = 12000;
 		
 		items.put("CATALONIA", ci.getBukkitItem());
+		
+		ci.name = "Akudur";
+		ci.miningSpeed = 900;
+		ci.miningSpeedPercent = 600;
+		ci.miningFortune = 25;
+		ci.miningXPBonus = 0;
+		
+		items.put("AKUDUR", ci.getBukkitItem());
+		
+		ci.name = "Outlook";
+		ci.miningSpeed = 1;
+		ci.miningSpeedPercent = 390000;
+		ci.miningXPBonus = 35;
+		
+		items.put("OUTLOOK", ci.getBukkitItem());
 	}	
 	public void init() {
 		initStandardPickaxes();

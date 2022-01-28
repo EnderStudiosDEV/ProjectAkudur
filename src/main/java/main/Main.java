@@ -10,7 +10,6 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import commands.ItemCommand;
 import commands.RedeemCommand;
 import events.GenericEvents;
 import hashmaps.HashMaps;
@@ -35,7 +34,6 @@ public class Main extends JavaPlugin {
 		createListener(new MiningHandler());
 		
 		createCommand(new RedeemCommand(), "redeem");
-		createCommand(new ItemCommand(), "ci");
 		
 		createListener(new HelpCore());
 		
@@ -50,10 +48,22 @@ public class Main extends JavaPlugin {
 	// Same as onEnable but for when it's disabled
 	@Override
 	public void onDisable() {
+		/*
+		 * public static HashMap<String, Long> coins = new HashMap<String, Long>();
+	public static HashMap<String, Long> efficiency = new HashMap<String, Long>();
+	public static HashMap<String, Long> fortune = new HashMap<String, Long>();
+	public static HashMap<String, Long> xpBonus = new HashMap<String, Long>();
+	public static HashMap<String, Long> efficiency2 = new HashMap<String, Long>();
+		 */
 		// Sends some debug info to the console.
 		Bukkit.getLogger().info("Unloading Project Akudur...");
 		saveHashMap(HashMaps.level, "level");
 		saveHashMap(HashMaps.xp, "xp");
+		saveHashMap(HashMaps.coins, "coins");
+		saveHashMap(HashMaps.efficiency, "eff");
+		saveHashMap(HashMaps.fortune, "fortune");
+		saveHashMap(HashMaps.xpBonus, "xpBonus");
+		saveHashMap(HashMaps.efficiency2, "eff2");
 	}
 	
 	public void createListener(Listener listener) {
@@ -64,7 +74,7 @@ public class Main extends JavaPlugin {
 	}
 	
 	// Save a HashMap to it's file.
-		public static void saveHashMap(HashMap<String, Integer> hm, String hashName) {
+		public static void saveHashMap(HashMap<String, Long> hm, String hashName) {
 			file = new File(Main.instance.getDataFolder(), hashName + ".yml");
 			System.out.println(Main.instance.getDataFolder().toString());
 			
@@ -132,8 +142,8 @@ public class Main extends JavaPlugin {
 	    	
 	    }
 		
-	    public static HashMap<String, Integer> loadHashMap(String hashName) {
-	    	HashMap<String, Integer> hm = new HashMap<String, Integer>();
+	    public static HashMap<String, Long> loadHashMap(String hashName) {
+	    	HashMap<String, Long> hm = new HashMap<String, Long>();
 	    	
 	    	file = new File(Main.instance.getDataFolder(), hashName + ".yml");
 	    	
@@ -150,7 +160,7 @@ public class Main extends JavaPlugin {
 	    	YamlConfiguration customFile = YamlConfiguration.loadConfiguration(file);
 	    	for (String key : customFile.getConfigurationSection(hashName).getKeys(true)) {
 	    		// Load the config from the file, and apply it to the hashmaps needed.
-	    		hm.put(key, (Integer) customFile.get(hashName + "."+key));
+	    		hm.put(key, Long.valueOf((int) customFile.get(hashName + "."+key)));
 	    	}
 	    	return hm;
 	    }

@@ -24,8 +24,15 @@ public class GenericEvents implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent e) {
 		// Change the join message.
+		/*
+		 * public static HashMap<String, Long> coins = new HashMap<String, Long>();
+	public static HashMap<String, Long> efficiency = new HashMap<String, Long>();
+	public static HashMap<String, Long> fortune = new HashMap<String, Long>();
+	public static HashMap<String, Long> xpBonus = new HashMap<String, Long>();
+	public static HashMap<String, Long> efficiency2 = new HashMap<String, Long>();
+		 */
 		e.setJoinMessage("§a§lJOIN! §a" + e.getPlayer().getName() + "§7 has joined!");
-		
+		String uuid = e.getPlayer().getUniqueId().toString();
 		World world = e.getPlayer().getWorld();
 		if(world == Bukkit.getWorld("world")) {
 			ItemDatabase dab = new ItemDatabase();
@@ -35,8 +42,14 @@ public class GenericEvents implements Listener {
 			e.getPlayer().teleport(new Location(Bukkit.getWorld("build"), 20, 85, -65));
 		}
 		if(HashMaps.level.get(e.getPlayer().getUniqueId().toString()) == null) {
-			HashMaps.level.put(e.getPlayer().getUniqueId().toString(), 1);
-			HashMaps.xp.put(e.getPlayer().getUniqueId().toString(), 0);
+			HashMaps.level.put(e.getPlayer().getUniqueId().toString(), 1L);
+			HashMaps.xp.put(e.getPlayer().getUniqueId().toString(), 0L);
+		}
+		if(HashMaps.efficiency.get(uuid) == null) {
+			HashMaps.efficiency.put(uuid, 1L);
+			HashMaps.fortune.put(uuid, 1L);
+			HashMaps.xpBonus.put(uuid, 1L);
+			HashMaps.efficiency2.put(uuid, 1L);
 		}
 	}
 	
