@@ -100,28 +100,29 @@ public class MiningHandler implements Listener {
 
     			String uuid = event.getPlayer().getUniqueId().toString();
     			HashMaps.xp.put(uuid, HashMaps.xp.get(uuid) + mu.xp(block, miningXPBonus));
+    			long coins = HashMaps.coins.get(uuid);
     			if(miningFortune <= 99) {
     				if(miningFortune > 0) {
     					int rng = Utils.random(0, 100);
     					if(rng <= miningFortune) {
-    						event.getPlayer().getInventory().addItem(mu.getDrop(block));
+    						HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
     					}
     				}
-    				event.getPlayer().getInventory().addItem(mu.getDrop(block));
+    				HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
     			} else {
     				if(miningFortune % 100 == 0) {
     					for(int ic = 0; ic < (miningFortune / 100); ic++) {
-    						event.getPlayer().getInventory().addItem(mu.getDrop(block));
+    						HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
     					}
     				} else {
     					int mf2 = (int) Math.round(miningFortune / 100);
     					for(int ic = 0; ic < (mf2); ic++) {
-    						event.getPlayer().getInventory().addItem(mu.getDrop(block));
+    						HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
     					}
     					if((miningFortune - mf2) <= 99) {
     						int rng = Utils.random(0, 100);
         					if(rng <= miningFortune) {
-        						event.getPlayer().getInventory().addItem(mu.getDrop(block));
+        						HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
         					}
     					}
     					

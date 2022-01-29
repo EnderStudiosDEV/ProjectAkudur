@@ -42,6 +42,11 @@ public class Main extends JavaPlugin {
 		
 		HashMaps.level = loadHashMap("level");
 		HashMaps.xp = loadHashMap("xp");
+		HashMaps.coins = loadHashMap("coins");
+		HashMaps.efficiency = loadHashMap("eff");
+		HashMaps.fortune = loadHashMap("fortune");
+		HashMaps.xpBonus = loadHashMap("xpBonus");
+		HashMaps.efficiency2 = loadHashMap("eff2");
 	}
 	
 	

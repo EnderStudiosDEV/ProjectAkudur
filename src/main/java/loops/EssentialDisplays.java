@@ -61,7 +61,7 @@ public class EssentialDisplays {
 	        
 	        lines.add("§7Running 0.7.2.30");
 	        lines.add("");
-	        lines.add("§aCoins: §2$§a0");
+	        lines.add("§aCoins: §2$§a" + HashMaps.coins.get(uuid));
 	        lines.add("");
 	        lines.add("§eakudur.minehut.gg");
 	        board.updateLines(lines);

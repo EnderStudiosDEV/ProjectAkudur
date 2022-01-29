@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
 import com.comphenix.protocol.PacketType;
@@ -14,7 +13,6 @@ import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.BlockPosition;
 
-import items.ItemDatabase;
 import main.Utils;
 
 public class MiningUtils {
@@ -127,37 +125,26 @@ public class MiningUtils {
 	
     }
     
-    public ItemStack getDrop(Material m) {
-    	ItemDatabase dat = new ItemDatabase();
-    	dat.init();
-    	
-    	if(Utils.random(1, 20) == 20) {
-    		ItemStack vo = new ItemStack(Material.STONE);
-    		vo = dat.items.get("STONE_VOUCHER");
-    		if(Utils.random(1, 3) == 3) {
-    			vo = dat.items.get("IRON_VOUCHER");
-    		}
-    		return vo;
-    	}
+    public long getDrop(Material m) {
     	if(m.equals(Material.STONE) ||
     			m.equals(Material.ANDESITE)) {
-    		return dat.items.get("STONE");
+    		return 1;
     	}
     	if(m.equals(Material.COPPER_ORE)) {
-    		return dat.items.get("COPPER");
+    		return 5;
     	}
     	if(m.equals(Material.IRON_ORE)) {
-    		return dat.items.get("IRON");
+    		return 12;
     	}
     	if(m.equals(Material.GOLD_ORE)) {
-    		return dat.items.get("GOLD");
+    		return 21;
     	}
     	if(m.equals(Material.DIAMOND_ORE)) {
-    		return dat.items.get("DIAMOND");
+    		return 45;
     	}
     	
     	
-		return null;
+		return 0;
     }
     public Integer xp(Material m, int miningXPBonus) {
     	int dol = 0;

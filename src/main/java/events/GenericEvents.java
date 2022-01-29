@@ -50,6 +50,7 @@ public class GenericEvents implements Listener {
 			HashMaps.fortune.put(uuid, 1L);
 			HashMaps.xpBonus.put(uuid, 1L);
 			HashMaps.efficiency2.put(uuid, 1L);
+			HashMaps.coins.put(uuid, 1L);
 		}
 	}
 	
