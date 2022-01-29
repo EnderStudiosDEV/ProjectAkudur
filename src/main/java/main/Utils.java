@@ -54,7 +54,7 @@ public class Utils {
     }
 	
 	public String format(int num) {
-		DecimalFormat formatter = new DecimalFormat("#,###");
+		DecimalFormat formatter = new DecimalFormat("#,###,###,###");
 		return formatter.format(num);
 	}
 	

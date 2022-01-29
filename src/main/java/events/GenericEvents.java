@@ -37,8 +37,6 @@ public class GenericEvents implements Listener {
 		if(world == Bukkit.getWorld("world")) {
 			ItemDatabase dab = new ItemDatabase();
 			dab.init();
-			
-			e.getPlayer().getInventory().addItem(dab.items.get("WOODEN_PICKAXE_1"));
 			e.getPlayer().teleport(new Location(Bukkit.getWorld("build"), 20, 85, -65));
 		}
 		if(HashMaps.level.get(e.getPlayer().getUniqueId().toString()) == null) {

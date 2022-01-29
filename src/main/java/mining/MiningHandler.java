@@ -16,6 +16,7 @@ import org.bukkit.inventory.ItemStack;
 
 import de.tr7zw.nbtapi.NBTItem;
 import hashmaps.HashMaps;
+import inventories.PickaxeMenu;
 import main.Main;
 import main.Utils;
 
@@ -150,10 +151,7 @@ public class MiningHandler implements Listener {
 	public void fixPickaxe(PlayerInteractEvent event) {
 		if(event.getAction() != Action.RIGHT_CLICK_AIR) return;
 		
-		final ItemStack i = event.getPlayer().getInventory().getItemInMainHand();
-		final NBTItem nbti = new NBTItem(i);
-        nbti.removeKey("c");
-        event.getPlayer().getInventory().setItemInMainHand(nbti.getItem());
-        event.getPlayer().sendMessage("Fixed your pickaxe!");
+		PickaxeMenu menu = new PickaxeMenu(event.getPlayer());
+		menu.openInventory(event.getPlayer());
 	}
 }

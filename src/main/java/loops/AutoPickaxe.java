@@ -33,7 +33,7 @@ public class AutoPickaxe {
 			ci.rarity = Rarity.COMMON;
 			ci.mat = Material.WOODEN_PICKAXE;
 			ci.baseBreakingPower = 1 + lvl;
-			ci.miningSpeed = 25 + ((lvl - 1) * 150) + ((efficiency - 1) * 50);
+			ci.miningSpeed = 25 + ((lvl - 1) * 150) + ((efficiency - 1) * 25);
 			ci.miningFortune = ((lvl - 1) * 50) + ((fortune - 1) * 10);
 			ci.miningSpeedPercent = ((efficiency2 - 1) * 20);
 			ci.miningXPBonus = ((xpBonus - 1) * 10);

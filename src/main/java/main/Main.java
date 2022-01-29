@@ -14,6 +14,7 @@ import commands.RedeemCommand;
 import events.GenericEvents;
 import hashmaps.HashMaps;
 import inventories.HelpCore;
+import inventories.PickaxeMenu;
 import loops.Core;
 import mining.MiningHandler;
 
@@ -32,6 +33,7 @@ public class Main extends JavaPlugin {
 		// Initialize commands and events
 		createListener(new GenericEvents());
 		createListener(new MiningHandler());
+		createListener(new PickaxeMenu(null));
 		
 		createCommand(new RedeemCommand(), "redeem");
 		
