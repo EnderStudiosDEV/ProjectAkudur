@@ -4,7 +4,9 @@ package loops;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
+import de.tr7zw.nbtapi.NBTItem;
 import hashmaps.HashMaps;
 import items.CustomItem;
 import items.Rarity;
@@ -37,7 +39,17 @@ public class AutoPickaxe {
 			ci.miningXPBonus = ((xpBonus - 1) * 10);
 			ci.name = "Pickaxe";
 			
-			p.getInventory().setItem(0, ci.getBukkitItem());
+			ItemStack i = ci.getBukkitItem();
+			NBTItem nbti = new NBTItem(i);
+			if(p.getInventory().getItem(0) != null) {
+				NBTItem nbti2 = new NBTItem(p.getInventory().getItem(0));
+				if(nbti.getInteger("c") != nbti2.getInteger("c")) {
+					nbti.setInteger("c", nbti2.getInteger("c"));
+				}
+			}
+			i = nbti.getItem();
+			
+			p.getInventory().setItem(0, i);
 		}
 	}
 

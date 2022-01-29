@@ -83,6 +83,7 @@ public class MiningHandler implements Listener {
     		int visibility = (int) Math.floor(((float)(progress.get(blockLocation)) / ((float) miningTime)) * ((float) 10));
     		visibility -= 10;
     		visibility *= -1;
+    		visibility -= 1;
     		int x = (int) Math.floor(blockLocation.getX());
     		int y = (int) Math.floor(blockLocation.getY());
     		int z = (int) Math.floor(blockLocation.getZ());
