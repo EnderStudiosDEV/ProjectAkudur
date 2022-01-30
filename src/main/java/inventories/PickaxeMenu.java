@@ -43,8 +43,8 @@ public class PickaxeMenu implements Listener {
         		"§bEfficiency " + HashMaps.efficiency.get(uuid), 
         		"§7Gain §625 Mining Speed §7 per level.",
         		"",
-        		"§7This tier: §6+" + (25 * HashMaps.efficiency.get(uuid)) + " §6Mining Speed",
-        		"§7Next tier: §6+" + (25 * HashMaps.efficiency.get(uuid) + 25) + " §6Mining Speed",
+        		"§7This tier: §6+" + (50 * HashMaps.efficiency.get(uuid)) + " §6Mining Speed",
+        		"§7Next tier: §6+" + (50 * HashMaps.efficiency.get(uuid) + 25) + " §6Mining Speed",
         		"",
         		"§7Cost: §a" + retMaxed(uu.eff1Cost(HashMaps.efficiency.get(uuid).intValue())),
         		"§eClick to upgrade!"));
@@ -52,8 +52,8 @@ public class PickaxeMenu implements Listener {
         		"§bEfficiency% " + HashMaps.efficiency2.get(uuid), 
         		"§7Gain §65% Mining Speed §7 per level.",
         		"",
-        		"§7This tier: §6+" + (5 * HashMaps.efficiency2.get(uuid)) + "§6% Mining Speed",
-        		"§7Next tier: §6+" + (5 * HashMaps.efficiency2.get(uuid) + 5) + "§6% Mining Speed",
+        		"§7This tier: §6+" + (10 * HashMaps.efficiency2.get(uuid)) + "§6% Mining Speed",
+        		"§7Next tier: §6+" + (10 * HashMaps.efficiency2.get(uuid) + 5) + "§6% Mining Speed",
         		"",
         		"§7Cost: §a" + retMaxed(uu.eff2Cost(HashMaps.efficiency2.get(uuid).intValue())),
         		"§eClick to upgrade!"));
@@ -70,8 +70,8 @@ public class PickaxeMenu implements Listener {
         		"§bXP Boost " + HashMaps.xpBonus.get(uuid), 
         		"§7Gain §610% XP Bonus §7per level.",
         		"",
-        		"§7This tier: §6+" + (10 * HashMaps.xpBonus.get(uuid)) + "§6% XP Bonus",
-        		"§7Next tier: §6+" + (10 * HashMaps.xpBonus.get(uuid) + 5) + "§6% XP Bonus",
+        		"§7This tier: §6+" + (15 * HashMaps.xpBonus.get(uuid)) + "§6% XP Bonus",
+        		"§7Next tier: §6+" + (15 * HashMaps.xpBonus.get(uuid) + 5) + "§6% XP Bonus",
         		"",
         		"§7Cost: §a" + retMaxed(uu.xpBoostCost(HashMaps.xpBonus.get(uuid).intValue())),
         		"§eClick to upgrade!"));
