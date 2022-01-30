@@ -33,6 +33,9 @@ public class CustomItem {
 	public int miningSpeedPercent = 0;
 	public int miningFortunePercent = 0;
 	
+	public int walkSpeed;
+	public int haste;
+	
 	public ItemStack getBukkitItem() {
 		ItemStack i = new ItemStack(mat);
 		ItemMeta meta = i.getItemMeta();

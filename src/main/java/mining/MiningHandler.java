@@ -103,35 +103,20 @@ public class MiningHandler implements Listener {
     			String uuid = event.getPlayer().getUniqueId().toString();
     			HashMaps.xp.put(uuid, HashMaps.xp.get(uuid) + mu.xp(block, miningXPBonus));
     			long coins = HashMaps.coins.get(uuid);
-    			if(miningFortune <= 99) {
-    				if(miningFortune > 0) {
-    					int rng = Utils.random(0, 100);
-    					if(rng <= miningFortune) {
-    						HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
-    					}
-    				}
-    				HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
-    			} else {
-    				if(miningFortune % 100 == 0) {
-    					for(int ic = 0; ic < (miningFortune / 100); ic++) {
-    						HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
-    					}
-    				} else {
-    					int mf2 = (int) Math.round(miningFortune / 100);
-    					for(int ic = 0; ic < (mf2); ic++) {
-    						HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
-    					}
-    					if((miningFortune - mf2) <= 99) {
-    						int rng = Utils.random(0, 100);
-        					if(rng <= miningFortune) {
-        						HashMaps.coins.put(uuid, mu.getDrop(block) + coins);
-        					}
-    					}
-    					
-    				}
+    			int add = 0;
+    			add += mu.getDrop(block);
+    			
+    			int baseChance = (int) miningFortune / 100;
+    			int bonusChance = (int) miningFortune % 100;
+    			
+    			add += mu.getDrop(block) * baseChance;
+    			
+    			int rng = Utils.random(1,100);
+    			if(rng < bonusChance) {
+    				add += mu.getDrop(block);
     			}
     			
-    			
+    			HashMaps.coins.put(uuid, add + coins);
     			mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), -1, id);
     			Main.instance.getServer().getScheduler().scheduleSyncDelayedTask(Main.instance, new Runnable() {
     				  public void run() {
@@ -150,7 +135,7 @@ public class MiningHandler implements Listener {
 	@EventHandler
 	public void fixPickaxe(PlayerInteractEvent event) {
 		if(event.getAction() != Action.RIGHT_CLICK_AIR) return;
-		
+		if(event.getPlayer().getInventory().getHeldItemSlot() != 0) return;
 		PickaxeMenu menu = new PickaxeMenu(event.getPlayer());
 		menu.openInventory(event.getPlayer());
 	}

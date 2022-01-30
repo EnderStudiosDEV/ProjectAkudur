@@ -46,16 +46,43 @@ public class PickaxeMenu implements Listener {
         		"§7This tier: §6+" + (25 * HashMaps.efficiency.get(uuid)) + " §6Mining Speed",
         		"§7Next tier: §6+" + (25 * HashMaps.efficiency.get(uuid) + 25) + " §6Mining Speed",
         		"",
-        		"§7Cost: §a" + uu.eff1Cost(HashMaps.efficiency.get(uuid).intValue()),
+        		"§7Cost: §a" + retMaxed(uu.eff1Cost(HashMaps.efficiency.get(uuid).intValue())),
         		"§eClick to upgrade!"));
         inv.setItem(11, createGuiItem(Material.ENCHANTED_BOOK, 
         		"§bEfficiency% " + HashMaps.efficiency2.get(uuid), 
         		"§7Gain §65% Mining Speed §7 per level.",
         		"",
-        		"§7This tier: §6+" + (5 * HashMaps.efficiency.get(uuid)) + "§6% Mining Speed",
-        		"§7Next tier: §6+" + (5 * HashMaps.efficiency.get(uuid) + 5) + "§6% Mining Speed",
+        		"§7This tier: §6+" + (5 * HashMaps.efficiency2.get(uuid)) + "§6% Mining Speed",
+        		"§7Next tier: §6+" + (5 * HashMaps.efficiency2.get(uuid) + 5) + "§6% Mining Speed",
         		"",
-        		"§7Cost: §a" + uu.eff2Cost(HashMaps.efficiency2.get(uuid).intValue()),
+        		"§7Cost: §a" + retMaxed(uu.eff2Cost(HashMaps.efficiency2.get(uuid).intValue())),
+        		"§eClick to upgrade!"));
+        inv.setItem(12, createGuiItem(Material.ENCHANTED_BOOK, 
+        		"§bFortune " + HashMaps.fortune.get(uuid), 
+        		"§7Gain §610 Mining Fortune§7 per level.",
+        		"",
+        		"§7This tier: §6+" + (10 * HashMaps.fortune.get(uuid)) + "§6 Mining Fortune",
+        		"§7Next tier: §6+" + (10 * HashMaps.fortune.get(uuid) + 5) + "§6 Mining Fortune",
+        		"",
+        		"§7Cost: §a" + retMaxed(uu.fortune1Cost(HashMaps.fortune.get(uuid).intValue())),
+        		"§eClick to upgrade!"));
+        inv.setItem(13, createGuiItem(Material.ENCHANTED_BOOK, 
+        		"§bXP Boost " + HashMaps.xpBonus.get(uuid), 
+        		"§7Gain §610% XP Bonus §7per level.",
+        		"",
+        		"§7This tier: §6+" + (10 * HashMaps.xpBonus.get(uuid)) + "§6% XP Bonus",
+        		"§7Next tier: §6+" + (10 * HashMaps.xpBonus.get(uuid) + 5) + "§6% XP Bonus",
+        		"",
+        		"§7Cost: §a" + retMaxed(uu.xpBoostCost(HashMaps.xpBonus.get(uuid).intValue())),
+        		"§eClick to upgrade!"));
+        inv.setItem(14, createGuiItem(Material.ENCHANTED_BOOK, 
+        		"§bHaste " + HashMaps.haste.get(uuid), 
+        		"§7Gain §6+1 Haste Tier §7per level.",
+        		"",
+        		"§7This tier: §6+" + (HashMaps.haste.get(uuid)) + "§6Haste Tier",
+        		"§7Next tier: §6+" + (HashMaps.haste.get(uuid) + 1) + "§6Haste Tier",
+        		"",
+        		"§7Cost: §a" + retMaxed(uu.hasteCost(HashMaps.haste.get(uuid).intValue())),
         		"§eClick to upgrade!"));
         
         
@@ -90,6 +117,35 @@ public class PickaxeMenu implements Listener {
             		HashMaps.efficiency.put(uuid, HashMaps.efficiency.get(uuid) + 1);
             	}
             }
+            if(e.getSlot() == 11) {
+            	if(HashMaps.coins.get(uuid) > uu.eff2Cost(HashMaps.efficiency2.get(uuid).intValue())) {
+            		HashMaps.coins.put(uuid, 
+            				HashMaps.coins.get(uuid) - uu.eff2Cost(HashMaps.efficiency2.get(uuid).intValue()));
+            		HashMaps.efficiency2.put(uuid, HashMaps.efficiency2.get(uuid) + 1);
+            	}
+            }
+            if(e.getSlot() == 12) {
+            	if(HashMaps.coins.get(uuid) > uu.fortune1Cost(HashMaps.fortune.get(uuid).intValue())) {
+            		HashMaps.coins.put(uuid, 
+            				HashMaps.coins.get(uuid) - uu.fortune1Cost(HashMaps.fortune.get(uuid).intValue()));
+            		HashMaps.fortune.put(uuid, HashMaps.fortune.get(uuid) + 1);
+            	}
+            }
+            if(e.getSlot() == 13) {
+            	if(HashMaps.coins.get(uuid) > uu.xpBoostCost(HashMaps.xpBonus.get(uuid).intValue())) {
+            		HashMaps.coins.put(uuid, 
+            				HashMaps.coins.get(uuid) - uu.xpBoostCost(HashMaps.xpBonus.get(uuid).intValue()));
+            		HashMaps.xpBonus.put(uuid, HashMaps.xpBonus.get(uuid) + 1);
+            	}
+            }
+            if(e.getSlot() == 14) {
+            	if(HashMaps.coins.get(uuid) > uu.hasteCost(HashMaps.haste.get(uuid).intValue())) {
+            		HashMaps.coins.put(uuid, 
+            				HashMaps.coins.get(uuid) - uu.hasteCost(HashMaps.haste.get(uuid).intValue()));
+            		HashMaps.haste.put(uuid, HashMaps.haste.get(uuid) + 1);
+            	}
+            }
+            
             PickaxeMenu menu = new PickaxeMenu((Player) e.getWhoClicked());
             menu.openInventory((Player) e.getWhoClicked());
         }
@@ -100,5 +156,14 @@ public class PickaxeMenu implements Listener {
         if (e.getWhoClicked().getOpenInventory().getTitle().equals("Pickaxe Menu")) {
             e.setCancelled(true);
         }
+    }
+    
+    public String retMaxed(Long a) {
+    	if(a == Long.MAX_VALUE) {
+    		return "§b§lMAXED!";
+    	} else {
+    		return a.toString();
+    	}
+    	
     }
 }

@@ -18,7 +18,7 @@ public class Announcements {
 			int type = Utils.random(1,3);
 			if(type == 1) {
 				// Thank you for supporting us messages.
-				int rng = Utils.random(1,2);
+				int rng = Utils.random(1,4);
 				String message = "";
 				
 				if(rng == 1) {
@@ -40,15 +40,17 @@ public class Announcements {
 				if(rng == 1) {
 					message = "If you fall in the void, you just get teleported back to spawn!";
 				} else if (rng == 2) {
-					message = "You can get better pickaxes by buying from Merchants!";
+					message = "You can improve your pickaxe by right-clicking!";
 				} else if (rng == 3) {
-					message = "Remember to weigh stats, and figure out which pickaxes suit your needs!";
+					message = "Fortune is the best enchant, due to the only multiplicative stats being Mining Fortune and Mining Speed.";
 				} else if (rng == 4) {
 					message = "You can quickly see your stats on the action bar!";
 				} else if (rng == 5) {
 					message = "Remember to take breaks to eat, drink water, and take care of yourself!";
 				} else if (rng == 6) {
 					message = "This server uses a custom mining system, so be aware!";
+				} else if (rng == 7) {
+					message = "Mine blocks to get coins!";
 				}
 				
 				Bukkit.broadcastMessage("§e[Tip] §f" + message);

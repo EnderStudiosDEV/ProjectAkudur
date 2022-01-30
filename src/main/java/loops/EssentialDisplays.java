@@ -59,7 +59,7 @@ public class EssentialDisplays {
 	        board.updateTitle("§5§lPROJECT AKUDUR");
 	        List<String> lines = new ArrayList<String>();
 	        
-	        lines.add("§7Running 0.7.2.30");
+	        lines.add("§7Running 0.8.4.36");
 	        lines.add("");
 	        lines.add("§aCoins: §2$§a" + HashMaps.coins.get(uuid));
 	        lines.add("");
@@ -72,7 +72,11 @@ public class EssentialDisplays {
 			if(world == Bukkit.getWorld("world")) {
 				p.teleport(new Location(Bukkit.getWorld("build"), 20, 85, -65));
 			}
+			if(p.getLocation().getY() < 48) {
+				p.teleport(new Location(Bukkit.getWorld("build"), 20, 85, -65));
+			}
 			
+			p.setFoodLevel(20);
 			// Armor
 			ItemStack[] armor = utils.armor(HashMaps.level.get(uuid));
 			for(int i = 0; i < 5; i++) {
@@ -95,6 +99,8 @@ public class EssentialDisplays {
 				}
 				
 			}
+			
+			// Teleport from Void
 		}
 	}
 

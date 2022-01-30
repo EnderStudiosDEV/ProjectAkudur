@@ -49,6 +49,8 @@ public class Main extends JavaPlugin {
 		HashMaps.fortune = loadHashMap("fortune");
 		HashMaps.xpBonus = loadHashMap("xpBonus");
 		HashMaps.efficiency2 = loadHashMap("eff2");
+		HashMaps.walkSpeed = loadHashMap("walkSpeed");
+		HashMaps.haste = loadHashMap("haste");
 	}
 	
 	
@@ -71,6 +73,8 @@ public class Main extends JavaPlugin {
 		saveHashMap(HashMaps.fortune, "fortune");
 		saveHashMap(HashMaps.xpBonus, "xpBonus");
 		saveHashMap(HashMaps.efficiency2, "eff2");
+		saveHashMap(HashMaps.walkSpeed, "walkSpeed");
+		saveHashMap(HashMaps.haste, "haste");
 	}
 	
 	public void createListener(Listener listener) {

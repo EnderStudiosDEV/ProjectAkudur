@@ -137,10 +137,10 @@ public class MiningUtils {
     		return 12;
     	}
     	if(m.equals(Material.GOLD_ORE)) {
-    		return 21;
+    		return 24;
     	}
     	if(m.equals(Material.DIAMOND_ORE)) {
-    		return 45;
+    		return 48;
     	}
     	
     	
@@ -158,32 +158,35 @@ public class MiningUtils {
     	if(m.equals(Material.IRON_ORE)) {
     		dol = 30;
     	}
-    	if(m.equals(Material.DIAMOND_ORE)) {
+    	if(m.equals(Material.GOLD_ORE)) {
     		dol = 70;
     	}
-    	if(m.equals(Material.EMERALD_ORE)) {
+    	if(m.equals(Material.DIAMOND_ORE)) {
     		dol = 120;
     	}
-    	if(m.equals(Material.NETHER_QUARTZ_ORE)) {
+    	if(m.equals(Material.EMERALD_ORE)) {
     		dol = 180;
     	}
-    	if(m.equals(Material.OBSIDIAN)) {
+    	if(m.equals(Material.NETHER_QUARTZ_ORE)) {
     		dol = 360;
     	}
-    	if(m.equals(Material.ANCIENT_DEBRIS)) {
+    	if(m.equals(Material.OBSIDIAN)) {
     		dol = 480;
     	}
-    	if(m.equals(Material.END_STONE)) {
+    	if(m.equals(Material.ANCIENT_DEBRIS)) {
     		dol = 720;
     	}
-    	if(m.equals(Material.PURPLE_TERRACOTTA)) {
+    	if(m.equals(Material.END_STONE)) {
     		dol = 1400;
     	}
-    	if(m.equals(Material.YELLOW_TERRACOTTA)) {
+    	if(m.equals(Material.PURPLE_TERRACOTTA)) {
     		dol = 2350;
     	}
-    	if(m.equals(Material.RED_TERRACOTTA)) {
+    	if(m.equals(Material.YELLOW_TERRACOTTA)) {
     		dol = 4900;
+    	}
+    	if(m.equals(Material.RED_TERRACOTTA)) {
+    		dol = 8500;
     	}
 		return dol * ((miningXPBonus + 100) / 100);
 	

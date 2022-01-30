@@ -7,9 +7,11 @@ import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 
 import hashmaps.HashMaps;
 import items.ItemDatabase;
@@ -70,5 +72,15 @@ public class GenericEvents implements Listener {
 			e.setCancelled(true);
 		}
 		
+	}
+	
+	@EventHandler
+	public void onClick(InventoryClickEvent e) {
+		e.setCancelled(true);
+	}
+	
+	@EventHandler
+	public void onSwap(PlayerSwapHandItemsEvent e) {
+		e.setCancelled(true);
 	}
 }
