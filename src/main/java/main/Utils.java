@@ -64,68 +64,68 @@ public class Utils {
 		armor[2] = new ItemStack(Material.LEATHER_CHESTPLATE);
 		armor[3] = new ItemStack(Material.LEATHER_LEGGINGS);
 		armor[4] = new ItemStack(Material.LEATHER_BOOTS);
-		if(lvl >= 3) {
+		if(lvl >= 2) {
 			armor[4] = new ItemStack(Material.CHAINMAIL_BOOTS);
 		}
-		if(lvl >= 6) {
+		if(lvl >= 2) {
 			armor[1] = new ItemStack(Material.CHAINMAIL_HELMET);
 		}
-		if(lvl >= 9) {
+		if(lvl >= 3) {
 			armor[3] = new ItemStack(Material.CHAINMAIL_LEGGINGS);
 		}
-		if(lvl >= 12) {
+		if(lvl >= 3) {
 			armor[2] = new ItemStack(Material.CHAINMAIL_CHESTPLATE);
 		}
 		
-		if(lvl >= 15) {
+		if(lvl >= 4) {
 			armor[4] = new ItemStack(Material.GOLDEN_BOOTS);
 		}
-		if(lvl >= 18) {
+		if(lvl >= 4) {
 			armor[1] = new ItemStack(Material.GOLDEN_HELMET);
 		}
-		if(lvl >= 21) {
+		if(lvl >= 5) {
 			armor[3] = new ItemStack(Material.GOLDEN_LEGGINGS);
 		}
-		if(lvl >= 24) {
+		if(lvl >= 5) {
 			armor[2] = new ItemStack(Material.GOLDEN_CHESTPLATE);
 		}
 		
-		if(lvl >= 27) {
+		if(lvl >= 6) {
 			armor[4] = new ItemStack(Material.IRON_BOOTS);
 		}
-		if(lvl >= 30) {
+		if(lvl >= 6) {
 			armor[1] = new ItemStack(Material.IRON_HELMET);
 		}
-		if(lvl >= 33) {
+		if(lvl >= 7) {
 			armor[3] = new ItemStack(Material.IRON_LEGGINGS);
 		}
-		if(lvl >= 36) {
+		if(lvl >= 7) {
 			armor[2] = new ItemStack(Material.IRON_CHESTPLATE);
 		}
 		
-		if(lvl >= 39) {
+		if(lvl >= 8) {
 			armor[4] = new ItemStack(Material.DIAMOND_BOOTS);
 		}
-		if(lvl >= 42) {
+		if(lvl >= 8) {
 			armor[1] = new ItemStack(Material.DIAMOND_HELMET);
 		}
-		if(lvl >= 45) {
+		if(lvl >= 9) {
 			armor[3] = new ItemStack(Material.DIAMOND_LEGGINGS);
 		}
-		if(lvl >= 48) {
+		if(lvl >= 9) {
 			armor[2] = new ItemStack(Material.DIAMOND_CHESTPLATE);
 		}
 		
-		if(lvl >= 51) {
+		if(lvl >= 10) {
 			armor[4] = new ItemStack(Material.NETHERITE_BOOTS);
 		}
-		if(lvl >= 54) {
+		if(lvl >= 10) {
 			armor[1] = new ItemStack(Material.NETHERITE_HELMET);
 		}
-		if(lvl >= 57) {
+		if(lvl >= 11) {
 			armor[3] = new ItemStack(Material.NETHERITE_LEGGINGS);
 		}
-		if(lvl >= 60) {
+		if(lvl >= 11) {
 			armor[2] = new ItemStack(Material.NETHERITE_CHESTPLATE);
 		}
 		return armor;

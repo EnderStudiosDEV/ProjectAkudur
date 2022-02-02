@@ -14,6 +14,7 @@ import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.BlockPosition;
 
 import main.Utils;
+import hashmaps.HashMaps;
 
 public class MiningUtils {
 
@@ -68,6 +69,7 @@ public class MiningUtils {
     			return true;
     		}
     	}
+    	
     	if(m.equals(Material.ANCIENT_DEBRIS)) {
     		if(bp >= 7) {
     			return true;
@@ -110,16 +112,16 @@ public class MiningUtils {
     	    return 550;
     	}
     	if(m.equals(Material.OBSIDIAN)) {
-    	    return 730;
+    	    return 1030;
     	}
     	if(m.equals(Material.ANCIENT_DEBRIS)) {
-    	    return 1010;
+    	    return 1310;
     	}
     	if(m.equals(Material.END_STONE)) {
-    	    return 1380;
+    	    return 1680;
     	}
     	if(m.equals(Material.PURPLE_TERRACOTTA)) {
-    	    return 2180;
+    	    return 2480;
     	}
 		return 1000000;
 	
@@ -131,18 +133,23 @@ public class MiningUtils {
     		return 1;
     	}
     	if(m.equals(Material.COPPER_ORE)) {
-    		return 5;
+    		return 3;
     	}
     	if(m.equals(Material.IRON_ORE)) {
-    		return 12;
+    		return 5;
     	}
     	if(m.equals(Material.GOLD_ORE)) {
-    		return 24;
+    		return 13;
     	}
     	if(m.equals(Material.DIAMOND_ORE)) {
-    		return 48;
+    		return 24;
     	}
-    	
+    	if(m.equals(Material.OBSIDIAN)) {
+    		return 54;
+    	}
+    	if(m.equals(Material.ANCIENT_DEBRIS)) {
+    		return 185;
+    	}
     	
 		return 0;
     }
@@ -164,60 +171,65 @@ public class MiningUtils {
     	if(m.equals(Material.DIAMOND_ORE)) {
     		dol = 120;
     	}
-    	if(m.equals(Material.EMERALD_ORE)) {
-    		dol = 180;
-    	}
-    	if(m.equals(Material.NETHER_QUARTZ_ORE)) {
-    		dol = 360;
-    	}
     	if(m.equals(Material.OBSIDIAN)) {
-    		dol = 480;
+    		dol = 240;
     	}
     	if(m.equals(Material.ANCIENT_DEBRIS)) {
-    		dol = 720;
+    		dol = 420;
     	}
     	if(m.equals(Material.END_STONE)) {
-    		dol = 1400;
+    		dol = 800;
     	}
     	if(m.equals(Material.PURPLE_TERRACOTTA)) {
-    		dol = 2350;
+    		dol = 1650;
     	}
     	if(m.equals(Material.YELLOW_TERRACOTTA)) {
-    		dol = 4900;
+    		dol = 3100;
     	}
     	if(m.equals(Material.RED_TERRACOTTA)) {
-    		dol = 8500;
+    		dol = 6400;
     	}
 		return dol * ((miningXPBonus + 100) / 100);
 	
     }
-    public Material replenish(Location loc) {
+    public Material replenish(Location loc, Player p) {
     	Material mat = stoneRng();
-    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), 19, 85, 36)) < 625) {
-    		if(Utils.random(1,2) == 1) {
-    			mat = Material.COPPER_ORE;
+    	if(loc.getWorld() == Bukkit.getWorld("build")) {
+    		if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), 19, 85, 36)) < 625) {
+        		if(Utils.random(1,2) == 1) {
+        			mat = Material.COPPER_ORE;
+        		}
+        	}
+        	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), -9, 85, 72)) < 625) {
+        		if(Utils.random(1,2) == 1) {
+        			mat = Material.IRON_ORE;
+        		}
+        	}
+        	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), 57, 85, 74)) < 625) {
+        		if(Utils.random(1,2) == 1) {
+        			mat = Material.DIAMOND_ORE;
+        		}
+        	}
+        	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), -16, 85, 6)) < 600) {
+        		if(Utils.random(1,2) == 1) {
+        			mat = Material.GOLD_ORE;
+        		}
+        	}
+        	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), -31, 85, -25)) < 600) {
+        		if(Utils.random(1,2) == 1) {
+        			mat = Material.GOLD_ORE;
+        		}
+        	}
+    	}
+    	if(loc.getWorld() == Bukkit.getWorld("nether")) {
+    		mat = Material.OBSIDIAN;
+    		Long ds = HashMaps.debrisSummoner.get(p.getUniqueId().toString());
+    		
+    		if(Utils.random(1, 15 - ds.intValue()) == 5) {
+    			mat = Material.ANCIENT_DEBRIS;
     		}
     	}
-    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), -9, 85, 72)) < 625) {
-    		if(Utils.random(1,2) == 1) {
-    			mat = Material.IRON_ORE;
-    		}
-    	}
-    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), 57, 85, 74)) < 625) {
-    		if(Utils.random(1,2) == 1) {
-    			mat = Material.DIAMOND_ORE;
-    		}
-    	}
-    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), -16, 85, 6)) < 600) {
-    		if(Utils.random(1,2) == 1) {
-    			mat = Material.GOLD_ORE;
-    		}
-    	}
-    	if(loc.distanceSquared(new Location(Bukkit.getWorld("build"), -31, 85, -25)) < 600) {
-    		if(Utils.random(1,2) == 1) {
-    			mat = Material.GOLD_ORE;
-    		}
-    	}
+    	
     	return mat;
     }
     public Material stoneRng() {

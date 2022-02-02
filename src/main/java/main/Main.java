@@ -51,6 +51,9 @@ public class Main extends JavaPlugin {
 		HashMaps.efficiency2 = loadHashMap("eff2");
 		HashMaps.walkSpeed = loadHashMap("walkSpeed");
 		HashMaps.haste = loadHashMap("haste");
+		HashMaps.debrisSummoner = loadHashMap("debrisSummoner");
+		HashMaps.enderSummoner = loadHashMap("enderSummoner");
+		HashMaps.efficientMiner = loadHashMap("efficientMiner");
 	}
 	
 	
@@ -75,6 +78,9 @@ public class Main extends JavaPlugin {
 		saveHashMap(HashMaps.efficiency2, "eff2");
 		saveHashMap(HashMaps.walkSpeed, "walkSpeed");
 		saveHashMap(HashMaps.haste, "haste");
+		saveHashMap(HashMaps.debrisSummoner, "debrisSummoner");
+		saveHashMap(HashMaps.enderSummoner, "enderSummoner");
+		saveHashMap(HashMaps.efficientMiner, "efficientMiner");
 	}
 	
 	public void createListener(Listener listener) {

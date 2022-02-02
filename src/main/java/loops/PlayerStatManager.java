@@ -25,6 +25,20 @@ public class PlayerStatManager {
 			p.setExp(x);
 			HashMaps.xp.put(uuid, xp);
 			HashMaps.level.put(uuid, level);
+			
+			try {
+				if(HashMaps.debrisSummoner.get(uuid) == null) {
+					HashMaps.debrisSummoner.put(uuid, 1L);
+					HashMaps.enderSummoner.put(uuid, 1L);
+				}
+				if(HashMaps.efficientMiner.get(uuid) == null) {
+					HashMaps.efficientMiner.put(uuid, 1L);
+				}
+			} catch (Exception e) {
+				HashMaps.debrisSummoner.put(uuid, 1L);
+				HashMaps.enderSummoner.put(uuid, 1L);
+			}
+			
 		}
 	}
 	
@@ -45,17 +59,17 @@ public class PlayerStatManager {
 			case 6:
 				return 51840;
 			case 7:
-				return 90720;
+				return 196800;
 			case 8:
-				return 136800;
+				return 540000;
 			case 9:
-				return 260000;
+				return 849500;
 			case 10:
-				return 479500;
+				return 1641750;
 			case 11:
-				return 871750;
+				return 2202500;
 			case 12:
-				return 1102500;
+				return 3303750;
 			
 		}
 	}

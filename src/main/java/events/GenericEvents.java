@@ -3,6 +3,7 @@ package events;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -76,11 +77,13 @@ public class GenericEvents implements Listener {
 	
 	@EventHandler
 	public void onClick(InventoryClickEvent e) {
+		if(e.getWhoClicked().getGameMode() != GameMode.SURVIVAL) return;
 		e.setCancelled(true);
 	}
 	
 	@EventHandler
 	public void onSwap(PlayerSwapHandItemsEvent e) {
+		if(e.getPlayer().getGameMode() != GameMode.SURVIVAL) return;
 		e.setCancelled(true);
 	}
 }

@@ -35,44 +35,22 @@ public class AutoPickaxe {
 			
 			CustomItem ci = new CustomItem();
 			ci.rarity = Rarity.COMMON;
-			ci.mat = Material.WOODEN_PICKAXE;
+			ci.mat = Material.PRISMARINE_SHARD;
 			ci.baseBreakingPower = lvl;
-			ci.miningSpeed = 25 + ((lvl - 1) * 150) + ((efficiency - 1) * 50);
-			ci.miningFortune = ((lvl - 1) * 50) + ((fortune - 1) * 10);
+			ci.miningSpeed = 50 + ((lvl - 1) * (50 * lvl )) + ((efficiency - 1) * 25);
+			ci.miningFortune = ((lvl - 1) * (10 * lvl)) + ((fortune - 1) * 10);
 			ci.miningSpeedPercent = ((efficiency2 - 1) * 10);
 			ci.miningXPBonus = ((xpBonus - 1) * 15);
-			ci.name = "Pickaxe";
+			ci.name = "Your Drill";
 			
-			int pickaxeWeight = 0;
-			pickaxeWeight = ci.miningSpeed * (100 + (ci.miningSpeedPercent / 100));
-			pickaxeWeight *= (100 + (ci.miningXPBonus / 100));
-			if(pickaxeWeight >= 150) {
-				ci.mat = Material.STONE_PICKAXE;
-			}
-			if(pickaxeWeight >= 450) {
-				ci.mat = Material.GOLDEN_PICKAXE;
-			}
-			if(pickaxeWeight >= 900) {
-				ci.mat = Material.IRON_PICKAXE;
-			}
-			if(pickaxeWeight >= 1500) {
-				ci.mat = Material.DIAMOND_PICKAXE;
-			}
-			if(pickaxeWeight >= 2500) {
-				ci.mat = Material.NETHERITE_PICKAXE;
-			}
-			if(pickaxeWeight >= 500) {
-				ci.mat = Material.PRISMARINE_SHARD;
-				ci.name = "Drill";
-			}
 			try {
-				if(HashMaps.haste.get(uuid) == 2) {
+				if(HashMaps.haste.get(uuid) == 2L) {
 					p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 1000000, 1));
-					ci.miningSpeed += 300;
+					ci.miningSpeedPercent += 150;
 				}
-				if(HashMaps.haste.get(uuid) == 3) {
+				if(HashMaps.haste.get(uuid) == 3L) {
 					p.addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 1000000, 2));
-					ci.miningSpeed += 600;
+					ci.miningSpeedPercent += 300;
 				}
 			} catch(Exception e) {
 				HashMaps.haste.put(uuid, 1L);

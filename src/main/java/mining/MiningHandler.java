@@ -73,6 +73,11 @@ public class MiningHandler implements Listener {
             int hardness = mu.hardness(block);
             int maxHardness = mu.hardness(block);
             int miningTime = (hardness * 30) / miningSpeed;
+            if(miningTime < 4) {
+            	if(miningTime > 0) {
+            		miningTime = 4;
+            	}
+            }
             int r = utils.random(1,999);
             // If the block does not have a mining time, give it one.
             if(progress == null ||
@@ -120,7 +125,7 @@ public class MiningHandler implements Listener {
     			mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), -1, id);
     			Main.instance.getServer().getScheduler().scheduleSyncDelayedTask(Main.instance, new Runnable() {
     				  public void run() {
-    					  blockLocation.getBlock().setType(mu.replenish(blockLocation));
+    					  blockLocation.getBlock().setType(mu.replenish(blockLocation, event.getPlayer()));
     					  progress.put(blockLocation, null);
     					  mu.blockBreakEffect(event.getPlayer(), blockLocation.toVector(), -1, id);
     				  }

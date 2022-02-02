@@ -98,6 +98,44 @@ public class UpgradeUtils {
 			return 480;
 		case 10:
 			return 960;
+		case 11:
+			return 1710;
+		case 12:
+			return 2410;
+		case 13:
+			return 2930;
+		case 14:
+			return 3600;
+		case 15:
+			return 4105;
+		}
+	}
+	public long efficientMinerCost(int lvl) {
+		switch(lvl) {
+		default:
+			return Long.MAX_VALUE;
+		case 1:
+			return 10;
+		case 2:
+			return 25;
+		case 3:
+			return 45;
+		case 4:
+			return 80;
+		case 5:
+			return 140;
+		case 6:
+			return 260;
+		case 7:
+			return 480;
+		case 8:
+			return 960;
+		case 9:
+			return 1710;
+		case 10:
+			return 2930;
+		case 11:
+			return 4105;
 		}
 	}
 	public long fortune2Cost(int lvl) {
@@ -158,10 +196,63 @@ public class UpgradeUtils {
 			default:
 				return Long.MAX_VALUE;
 			case 1:
-				return 75000;
+				return 15000;
 			case 2:
-				return 150000;
+				return 45000;
 		}
 	}
 	
+	public long debrisBoostCost(int lvl) {
+		switch(lvl) {
+		default:
+			return Long.MAX_VALUE;
+		case 1:
+			return 5000;
+		case 2:
+			return 7500;
+		case 3:
+			return 13000;
+		case 4:
+			return 27000;
+		case 5:
+			return 40000;
+		case 6:
+			return 70000;
+		case 7:
+			return 90000;
+		case 8:
+			return 130000;
+		case 9:
+			return 240000;
+		case 10:
+			return 48000;
+		}
+	}
+	
+	public long enderBoostCost(int lvl) {
+		switch(lvl) {
+		default:
+			return Long.MAX_VALUE;
+		case 1:
+			return 5000;
+		case 2:
+			return 7500;
+		case 3:
+			return 13000;
+		case 4:
+			return 27000;
+		case 5:
+			return 40000;
+		case 6:
+			return 70000;
+		case 7:
+			return 90000;
+		case 8:
+			return 130000;
+		case 9:
+			return 240000;
+		case 10:
+			return 480000;
+		}
+	}
 }
