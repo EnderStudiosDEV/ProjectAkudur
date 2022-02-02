@@ -1,5 +1,8 @@
 package upgrades;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UpgradeUtils {
 	public long eff1Cost(int lvl) {
 		switch(lvl) {
@@ -254,5 +257,45 @@ public class UpgradeUtils {
 		case 10:
 			return 480000;
 		}
+	}
+	
+	public List<String> levelMessage(int lvl) {
+		List<String> msg = new ArrayList<String>();
+		msg.add("§3----------");
+		msg.add("");
+		msg.add("§b§lLEVEL UP!");
+		msg.add("§7You are now level §b" + lvl);
+		msg.add("");
+		msg.add("§a+1 tier §7Breaking Power");
+		msg.add("§6+" + (50 * ((lvl - 1)) + 50) + "§7=> §6+ " + ((50 * lvl) + 50) + "§6 Base Mining Speed");
+		switch(lvl) {
+			default:
+				break;
+			case 2:
+				msg.add("§bEfficient Miner §7Upgrade Unlocked");
+				msg.add("§8Right click your drill to check it out!");
+				break;
+			case 3:
+				msg.add("§bEfficiency % §7Upgrade Unlocked");
+				msg.add("§8Right click your drill to check it out!");
+				break;
+			case 4:
+				msg.add("§bXP Boost §7Upgrade Unlocked");
+				msg.add("§8Right click your drill to check it out!");
+				break;
+			case 6:
+				msg.add("§bHaste % §7Upgrade Unlocked");
+				msg.add("§8Right click your drill to check it out!");
+				break;
+			case 7:
+				msg.add("§bDebris Summoner §7Upgrade Unlocked");
+				msg.add("§bEnder Summoner §7Upgrade Unlocked");
+				msg.add("§8Right click your drill to check it out!");
+				break;
+		}
+		
+		msg.add("");
+		msg.add("§3----------");
+		return msg;
 	}
 }

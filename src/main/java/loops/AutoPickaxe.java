@@ -38,7 +38,7 @@ public class AutoPickaxe {
 			ci.mat = Material.PRISMARINE_SHARD;
 			ci.baseBreakingPower = lvl;
 			ci.miningSpeed = 50 + ((lvl - 1) * (50 * lvl )) + ((efficiency - 1) * 25);
-			ci.miningFortune = ((lvl - 1) * (10 * lvl)) + ((fortune - 1) * 10);
+			ci.miningFortune = ((fortune - 1) * 10);
 			ci.miningSpeedPercent = ((efficiency2 - 1) * 10);
 			ci.miningXPBonus = ((xpBonus - 1) * 15);
 			ci.name = "Your Drill";

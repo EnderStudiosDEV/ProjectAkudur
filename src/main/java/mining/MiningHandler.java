@@ -66,7 +66,7 @@ public class MiningHandler implements Listener {
             Integer miningFortune = nbti.getInteger("miningFortune");
             Integer miningXPBonus = nbti.getInteger("miningXPBonus");
             Integer breakingPower = nbti.getInteger("breakingPower");
-            
+            Long chanceofInstant = HashMaps.efficientMiner.get(event.getPlayer().getUniqueId().toString());
             if(!mu.canMine(block, breakingPower)) return;
             
             // Stats of the block.
@@ -76,6 +76,12 @@ public class MiningHandler implements Listener {
             if(miningTime < 4) {
             	if(miningTime > 0) {
             		miningTime = 4;
+            	}
+            }
+            if(chanceofInstant > 2) {
+            	if(Utils.random(1, (int) (100 - chanceofInstant + 1)) == 1) {
+            		miningTime = 0;
+            		event.getPlayer().sendMessage("§a§lNICE! §7Your Efficient Miner upgrade has proc'd!");
             	}
             }
             int r = utils.random(1,999);

@@ -1,9 +1,12 @@
 package loops;
 
+import java.util.List;
+
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import hashmaps.HashMaps;
+import upgrades.UpgradeUtils;
 public class PlayerStatManager {
 
 	public static void call() {
@@ -15,7 +18,11 @@ public class PlayerStatManager {
 			if(xp > xpReq(level.intValue())) {
 				xp -= xpReq(level.intValue());
 				level += 1;
-				p.sendMessage("§b§lLEVEL UP! §7§rYou have leveled up!");
+				UpgradeUtils uu = new UpgradeUtils();
+				List<String> msg = uu.levelMessage(level.intValue());
+				for(String s : msg) {
+					p.sendMessage(s);
+				}
 			}
 			p.setLevel(level.intValue());
 			float x = ((float) xp / (float) xpReq(level.intValue()));

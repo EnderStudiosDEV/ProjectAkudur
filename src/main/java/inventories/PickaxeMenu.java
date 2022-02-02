@@ -52,17 +52,20 @@ public class PickaxeMenu implements Listener {
         
         inv.setItem(12, createGuiItem(Material.BARRIER,
         		"§cNot unlocked!",
-        		"§7This upgrade is unlocked at §bLevel 3."));
+        		"§7This upgrade is unlocked at §bLevel 2."));
         inv.setItem(13, createGuiItem(Material.BARRIER,
         		"§cNot unlocked!",
-        		"§7This upgrade is unlocked at §bLevel 4."));
+        		"§7This upgrade is unlocked at §bLevel 3."));
         inv.setItem(14, createGuiItem(Material.BARRIER,
         		"§cNot unlocked!",
-        		"§7This upgrade is unlocked at §bLevel 6."));
+        		"§7This upgrade is unlocked at §bLevel 4."));
         inv.setItem(15, createGuiItem(Material.BARRIER,
         		"§cNot unlocked!",
-        		"§7This upgrade is unlocked at §bLevel 7."));
+        		"§7This upgrade is unlocked at §bLevel 6."));
         inv.setItem(16, createGuiItem(Material.BARRIER,
+        		"§cNot unlocked!",
+        		"§7This upgrade is unlocked at §bLevel 7."));
+        inv.setItem(19, createGuiItem(Material.BARRIER,
         		"§cNot unlocked!",
         		"§7This upgrade is unlocked at §bLevel 7."));
         
@@ -132,7 +135,7 @@ public class PickaxeMenu implements Listener {
              		"",
              		"§7Cost: §a" + retMaxed(uu.debrisBoostCost(HashMaps.debrisSummoner.get(uuid).intValue())),
              		"§eClick to upgrade!"));
-        	inv.setItem(17, createGuiItem(Material.ENCHANTED_BOOK, 
+        	inv.setItem(19, createGuiItem(Material.ENCHANTED_BOOK, 
              		"§bEnder Summoner " + HashMaps.haste.get(uuid), 
              		"§7Have an increase chance of spawning Ufili and more.",
              		"",
@@ -178,14 +181,14 @@ public class PickaxeMenu implements Listener {
             		HashMaps.efficiency.put(uuid, HashMaps.efficiency.get(uuid) + 1);
             	}
             }
-            if(e.getSlot() == 11) {
+            if(e.getSlot() == 12) {
             	if(HashMaps.coins.get(uuid) >= uu.efficientMinerCost(HashMaps.efficientMiner.get(uuid).intValue())) {
             		HashMaps.coins.put(uuid, 
             				HashMaps.coins.get(uuid) - uu.efficientMinerCost(HashMaps.efficientMiner.get(uuid).intValue()));
             		HashMaps.efficientMiner.put(uuid, HashMaps.efficientMiner.get(uuid) + 1);
             	}
             }
-            if(e.getSlot() == 12) {
+            if(e.getSlot() == 11) {
             	if(HashMaps.coins.get(uuid) >= uu.fortune1Cost(HashMaps.fortune.get(uuid).intValue())) {
             		HashMaps.coins.put(uuid, 
             				HashMaps.coins.get(uuid) - uu.fortune1Cost(HashMaps.fortune.get(uuid).intValue()));
@@ -221,7 +224,7 @@ public class PickaxeMenu implements Listener {
             		HashMaps.debrisSummoner.put(uuid, HashMaps.debrisSummoner.get(uuid) + 1);
             	}
             }
-            if(e.getSlot() == 17) {
+            if(e.getSlot() == 19) {
             	if(HashMaps.coins.get(uuid) >= uu.enderBoostCost(HashMaps.haste.get(uuid).intValue())) {
             		HashMaps.coins.put(uuid, 
             				HashMaps.coins.get(uuid) - uu.enderBoostCost(HashMaps.enderSummoner.get(uuid).intValue()));
